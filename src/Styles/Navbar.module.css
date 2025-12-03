@@ -1,0 +1,152 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+ padding: 40px 0;
+  background: #0f1112;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+
+}
+.navbar1 {
+  overflow: visible;
+}
+
+.navbar1,
+.navbar {
+  position: relative;
+  z-index: 9999;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropBtn {
+  cursor: pointer;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #1c1f23;
+  padding: 12px 20px;
+  border-radius: 4px;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+  z-index: 99999;
+}
+
+.dropdownMenu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.dropdownMenu a:hover {
+  color: #cfa05f;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoIcon {
+  width: 190px;
+  height: auto;
+}
+
+.logoText h1 {
+  font-size: 28px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.logoText span {
+  letter-spacing: 6px;
+  font-size: 12px;
+  color: #c6c6c6;
+}
+
+.navLinks {
+  display: flex;
+  gap: 40px;
+}
+
+.navLinks a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.navLinks a:hover {
+  color: #d6a35a;
+}
+
+.cartSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price {
+  color: #aebccd;
+  font-size: 15px;
+}
+
+.cartIcon {
+  background: #c78a3a;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropBtn {
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #1c1f23;
+  padding: 12px 20px;
+  border-radius: 4px;
+  min-width: 75px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+  z-index: 99999;
+}
+
+.dropdownMenu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.dropdownMenu a:hover {
+  color: #cfa05f;
+}
