@@ -1,0 +1,26 @@
+.mainblog {
+    background-color: #1f242b;
+    display: flex;
+    justify-content: space-around !important;
+    height: 50vh;
+}
+.blogs {
+    color: white;
+    margin-top: 50px;  
+}
+.blogs h1 {
+    font-size: 60px;
+    font-family: sans-serif;
+}
+.images3 {
+    display: flex;
+    gap: 35px;
+}
+.images3 img {
+    width: 180px;
+    height: 250px;
+    border-radius: 200px;
+}
+.imgi{
+    margin-top: 70px;
+}

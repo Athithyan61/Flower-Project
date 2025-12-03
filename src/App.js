@@ -8,6 +8,7 @@ import Faq from "./Component/Faq";
 import Contact from "./Component/Contact";
 import Home from "./Component/Home";
 import Product from "./Component/Product";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
