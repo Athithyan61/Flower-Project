@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+.hero {
+  width: 100%;
+  display: grid;
+  /* grid-template-columns: 1.2fr 1fr; */
+  align-items: center;
+  /* gap: 40px; */
+  padding: 40px 1%;
+  background: #22272b;
+}
+.hero {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* wider left -> right moves closer */
+  align-items: center;
+  gap: 10px;
+  padding: 40px 3%; /* adds slight side breathing space */
+}
+
+.heroLeft {
+  display: flex;
+  justify-content: flex-end; /* pushes images toward text */
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: repeat(0.5, 160px); /* slightly smaller image grid */
+  grid-auto-rows: 180px;
+  gap: 20px;
+}
+
+/* LEFT GRID WRAPPER */
+.heroLeft {
+  display: flex;
+  justify-content: center;
+}
+
+.heroGrid {
+  display: grid;
+  /* grid-template-columns: repeat(3, 200px); */
+  grid-auto-rows: 200px;
+  /* gap: 25px; */
+  position: relative;
+}
+
+/* Circle Shape */
+.circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Oval Shape */
+.oval {
+  width: 185px;
+  height: 365px;
+  border-radius: 90% / 50%;
+  object-fit: cover;
+}
+
+/* PERFECT POSITIONING — EXACT LIKE YOUR REFERENCE */
+.i1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.i2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.i3 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.i4 {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: -10px; /* lifts image up (same as ref layout) */
+}
+
+.i5 {
+  grid-column: 3;
+  grid-row: 2;
+  margin-top: -10px;
+}
+
+/* RIGHT SECTION */
+.heroRight h1 {
+  font-size: 45px;
+  color: white;
+  font-weight: 700;
+  line-height: 64px;
+  /* margin-bottom: 25px; */
+  font-family: "Syne", sans-serif;
+}
+
+.heroRight p {
+  color: #9fa6ac;
+  line-height: 26px;
+  /* margin-bottom: 30px; */
+  max-width: 480px;
+}
+
+.shopBtn {
+  background: #c58a48;
+  padding: 12px 34px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  gap: 60px;
+}
+
+.stat h2 {
+  color: #c58a48;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Syne", sans-serif;
+}
+
+.stat span {
+  color: white;
+  font-size: 16px;
+}

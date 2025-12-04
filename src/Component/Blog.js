@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../Styles/Blog.module.css';
 import img1 from '../j-images/flr1';
 import img2 from '../j-images/flr2';
@@ -12,10 +12,21 @@ import imgg6 from '../j-images/cont6';
 import { BsClock } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 function Blog() {
 
   const navigate = useNavigate();
+  const [offsetY, setOffsetY] = useState(0);
+
+  const handleScroll = () => {
+    setOffsetY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const blogData = [
     {
@@ -40,39 +51,64 @@ function Blog() {
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis"
     },
     {
-      title: "A Vase of Dry Grass Showcases Natural Texture Against",
+      title: "A Table Showcases a Vibrant Vase of Flowers",
       img: imgg4,
-      date: "November 23, 2024",
+      date: "November 21, 2024",
       time: "12:07 am",
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis"
     },
     {
-      title: "A Vibrant Bouquet of White and Pink Carnations",
+      title: "A Vase of Pink Roses Glistening With Water Droplets",
       img: imgg5,
-      date: "November 22, 2024",
+      date: "November 20, 2024",
       time: "10:42 pm",
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis"
     },
     {
-      title: "A Rustic Vase Filled With Dried Flowers and Grass",
+      title: "A Delightful Mix of White and Pink Carnations",
       img: imgg6,
-      date: "November 22, 2024",
+      date: "November 24, 2024",
       time: "10:33 pm",
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis"
     }
   ];
   return (
     <>
-      <div className={styles.mainblog}>
-        <div className={styles.blogs}>
-          <h1> Our Blog</h1>
+      <div className={styles.main}>
+        <div className={styles.main1}>
+          <h1>Our Blog</h1>
         </div>
-        <div className={styles.images3}>
-          <img src={img1} alt='' className={styles.bottom}  />
-          <img src={img2} alt='' className={styles.imgi} />
-          <img src={img3} alt='' className={styles.bottom} />
+
+        <div className={styles.main2}>
+          <img
+            src={img1}
+            alt=""
+            className={styles.pImage}
+            style={{ transform: `translateY(${offsetY * -0.25}px)` }}
+          />
+
+          <img
+            src={img2}
+            alt=""
+            className={`${styles.pImage} ${styles.centerImg}`}
+            style={{
+              position: "absolute",    // make it positioned inside main2
+              top: "50%",
+              left: "50%",
+              transform: `translate(-50%, -50%) translateY(${offsetY * 0.35}px)`,
+              zIndex: 1                 // behind other images
+            }}
+          />
+
+          <img
+            src={img3}
+            alt=""
+            className={styles.pImage}
+            style={{ transform: `translateY(${offsetY * -0.2}px)` }}
+          />
         </div>
       </div>
+
       <div className={styles.blogwrapper}>
         <div className={styles.blogcontainer}>
           {blogData.map((item, index) => (
@@ -95,6 +131,8 @@ function Blog() {
           ))}
         </div>
       </div>
+
+      <Footer />
     </>
   )
 }

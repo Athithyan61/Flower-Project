@@ -7,26 +7,39 @@ import img2 from '../j-images/flr2';
 import img3 from '../j-images/flr3';
 import { IoIosContact } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
+import Footer from "./Footer";
 
 
 
 function BlogSingle() {
+  const [offsetY, setOffsetY] = useState(0);
+
   const navigate = useNavigate();
 
-   const [formData, setFormData] = useState({
-  comment: "",
-  name: "",
-  email: "",
-  website: ""
-});
+  const handleScroll = () => {
+    setOffsetY(window.scrollY);
+  };
 
-const [errors, setErrors] = useState({});
-const handleChange = (e) => {
-  setFormData({
-    ...formData,
-    [e.target.name]: e.target.value
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const [formData, setFormData] = useState({
+    comment: "",
+    name: "",
+    email: "",
+    website: ""
   });
-};
+
+  const [errors, setErrors] = useState({});
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
+  };
   const { id } = useParams();
 
   const { pathname } = useLocation();
@@ -40,45 +53,70 @@ const handleChange = (e) => {
     return <h2 style={{ color: "white", textAlign: "center" }}>Post not found</h2>;
   }
 
-const validateForm = () => {
-  let newErrors = {};
-  if (!formData.comment.trim()) newErrors.comment = "Please fill this required field !";
-  if (!formData.name.trim()) newErrors.name = "Please fill this required field !";
-  if (!formData.email.trim()) newErrors.email = "Please fill this required field!";
-  if (!formData.website.trim()) newErrors.website = "Please fill this required field!";
+  const validateForm = () => {
+    let newErrors = {};
+    if (!formData.comment.trim()) newErrors.comment = "Please fill this required field !";
+    if (!formData.name.trim()) newErrors.name = "Please fill this required field !";
+    if (!formData.email.trim()) newErrors.email = "Please fill this required field!";
+    if (!formData.website.trim()) newErrors.website = "Please fill this required field!";
 
-  return newErrors;
-};
-const handleSubmit = (e) => {
-  e.preventDefault();
+    return newErrors;
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const validationErrors = validateForm();
-  setErrors(validationErrors);
+    const validationErrors = validateForm();
+    setErrors(validationErrors);
 
-  if (Object.keys(validationErrors).length === 0) {
-    alert("Comment submitted!");
-     setFormData({
-    comment: "",
-    name: "",
-    email: "",
-    website: ""
-  });
-   setErrors({});
-  }
-};
+    if (Object.keys(validationErrors).length === 0) {
+      alert("Comment submitted!");
+      setFormData({
+        comment: "",
+        name: "",
+        email: "",
+        website: ""
+      });
+      setErrors({});
+    }
+  };
 
   return (
     <>
-      <div className={styles.mainblog}>
-        <div className={styles.blogs}>
-          <h1> Blog Single</h1>
+      <div className={styles.main}>
+        <div className={styles.main1}>
+          <h1>Blog Single</h1>
         </div>
-        <div className={styles.images3}>
-          <img src={img1} alt='' className={styles.bottom} />
-          <img src={img2} alt='' className={styles.imgi} />
-          <img src={img3} alt='' className={styles.bottom} />
+
+        <div className={styles.main2}>
+          <img
+            src={img1}
+            alt=""
+            className={styles.pImage}
+            style={{ transform: `translateY(${offsetY * -0.25}px)` }}
+          />
+
+          <img
+            src={img2}
+            alt=""
+            className={`${styles.pImage} ${styles.centerImg}`}
+            style={{
+              position: "absolute",   
+              top: "50%",
+              left: "50%",
+              transform: `translate(-50%, -50%) translateY(${offsetY * 0.35}px)`,
+              zIndex: 1                
+            }}
+          />
+
+          <img
+            src={img3}
+            alt=""
+            className={styles.pImage}
+            style={{ transform: `translateY(${offsetY * -0.2}px)` }}
+          />
         </div>
       </div>
+
       <div className={styles.Mainblogsingle}>
         <div className={styles.blogDetailsWrapper}>
           <div className={styles.blogLeft}>
@@ -147,7 +185,7 @@ const handleSubmit = (e) => {
                 value={formData.website}
                 onChange={handleChange}
               />
-               {errors.website && <p className={styles.error}>{errors.website}</p>}
+              {errors.website && <p className={styles.error}>{errors.website}</p>}
 
 
               <div className={styles.checkboxrow}>
@@ -180,6 +218,7 @@ const handleSubmit = (e) => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

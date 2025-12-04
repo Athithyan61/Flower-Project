@@ -1,93 +1,49 @@
-.mainblog {
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+.main {
   background-color: #1f242b;
   display: flex;
-  justify-content: space-around !important;
-  height: 49vh;
+  justify-content: space-around;
+  align-items: center;
+   padding: 40px;
+   overflow: hidden;
 }
 
-.blogs {
+.main1 h1 {
   color: white;
-  margin-top: 90px;
-}
-
-.blogs h1 {
   font-size: 70px;
-  font-family: sans-serif;
-  font-weight: 600;
+  font-weight: 700;
+   font-family: "Syne", sans-serif;
 }
 
-.images3 {
+.main2 {
   display: flex;
-  gap: 35px;
+  gap: 220px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
 }
 
-.images3 img {
+.pImage {
   width: 180px;
   height: 250px;
   border-radius: 200px;
-}
-
-.imgi {
-  margin-top: 100px;
-}
-
-.img {
   object-fit: cover;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  transform-origin: center;
-  opacity: 0;
+  transition: transform 0.2s linear;
+  position: relative;
+  bottom: 45px;
+
 }
 
-@keyframes slideDown {
-  0% {
-    transform: translateY(-120px) scale(0.98);
-    opacity: 0;
-  }
-
-  60% {
-    transform: translateY(10px) scale(1.02);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
+.centerImg {
+  margin-top: 55px;
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+ 
 }
-
-@keyframes slideUp {
-  0% {
-    transform: translateY(120px) scale(0.98);
-    opacity: 0;
-  }
-
-  60% {
-    transform: translateY(-8px) scale(1.02);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-.bottom {
-  animation: slideDown 2s cubic-bezier(.22, .9, .35, 1) forwards;
-}
-
-.imgi {
-  animation: slideUp 3s cubic-bezier(.22, .9, .35, 1) forwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .img {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
 .blogwrapper {
   width: 100%;
   background: #0f1111;
@@ -116,9 +72,10 @@
 }
 
 .blogtitle {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 15px;
+   font-family: "Syne", sans-serif;
 }
 
 .blogimg {
@@ -134,6 +91,7 @@
   margin-bottom: 15px;
   color: #ddd;
   font-weight: 700;
+   font-family: "Syne", sans-serif;
 }
 
 .blogdesc {
@@ -141,4 +99,3 @@
   line-height: 1.6;
   color: #ccc;
 }
-

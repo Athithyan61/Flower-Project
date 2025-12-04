@@ -1,13 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+
+
 .navbar {
-  width: 100%;
+ 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
- padding: 40px 0;
+ padding: 40px 50px;
   background: #0f1112;
   color: #ffffff;
-  font-family: "Poppins", sans-serif;
-
+   font-family: "Syne", sans-serif;
+ 
 }
 .navbar1 {
   overflow: visible;
@@ -27,12 +30,13 @@
 .dropBtn {
   cursor: pointer;
   padding: 0 10px;
-  font-size: 13px;
+ font-size: 18px;
+   font-family: "Syne", sans-serif;
 }
 
 .dropdownMenu {
   position: absolute;
-  top: 35px;
+  top: 20px;
   left: 0;
   background: #1c1f23;
   padding: 12px 20px;
@@ -43,12 +47,13 @@
   gap: 10px;
   box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
   z-index: 99999;
+
+ 
 }
 
 .dropdownMenu a {
   text-decoration: none;
   color: #ffffff;
-  font-size: 14px;
 }
 
 .dropdownMenu a:hover {
@@ -80,13 +85,14 @@
 
 .navLinks {
   display: flex;
-  gap: 40px;
+  gap: 25px;
+  margin-left: 30px;
 }
 
 .navLinks a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 18px;
   transition: 0.3s;
 }
 
@@ -102,7 +108,8 @@
 
 .price {
   color: #aebccd;
-  font-size: 15px;
+  font-size: 17px;
+   font-family: "Syne", sans-serif;
 }
 
 .cartIcon {
@@ -144,7 +151,7 @@
 .dropdownMenu a {
   text-decoration: none;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .dropdownMenu a:hover {
