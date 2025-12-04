@@ -94,11 +94,12 @@
   height: 330px;
   border: 1px solid #363636;
   padding: 20px;
-    transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 .cardBox:hover {
   border-color: #d9a96c;
    transform: translateY(-4px);
+   cursor: pointer;
 }
 .cardBox h3 {
   margin: 0;

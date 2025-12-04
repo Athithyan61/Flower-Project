@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
+import { toast } from "react-toastify";
 
 import styles from "../Styles/ProductDetails.module.css";
 
@@ -63,14 +64,22 @@ function ProductDetails() {
   // If product is missing AFTER hooks → safe
   if (!currentProduct) return <h2>Product Not Found</h2>;
 
-  // ------------------- MAIN ADD TO CART -------------------
   const handleAddMainProduct = () => {
     addToCart({
       ...currentProduct,
       price: Number(currentProduct.newPrice),
       quantity: Number(qty),
     });
-    navigate("/cart");
+
+    toast.success("Your product is added to the basket!", {
+      position: "top-center",
+      autoClose: 1500, // popup stays visible
+    });
+
+    // WAIT 1.5 sec → then navigate
+    setTimeout(() => {
+      navigate("/cart");
+    }, 1500);
   };
 
   // ------------------- Image hover move effect -------------------
@@ -86,12 +95,26 @@ function ProductDetails() {
     imageRef.current.style.transform = "translate(0,0) scale(1)";
   };
 
-  // ------------------- ADD TO CART for related items -------------------
-  const handleAddRelated = (id) => {
-    setButtonState((prev) => ({ ...prev, [id]: "loading" }));
+  const handleAddRelated = (item) => {
+    setButtonState((prev) => ({ ...prev, [item.id]: "loading" }));
+
     setTimeout(() => {
-      setButtonState((prev) => ({ ...prev, [id]: "added" }));
-    }, 1500);
+      addToCart({
+        id: item.id,
+        name: item.name,
+        price: Number(item.price.replace("$", "")),
+        quantity: 1,
+        image: item.img,
+      });
+
+      setButtonState((prev) => ({ ...prev, [item.id]: "added" }));
+
+      // optional: show toast when added
+      toast.success(`${item.name} added to basket!`, {
+        position: "top-center",
+        autoClose: 1200,
+      });
+    }, 800);
   };
 
   // ------------------- RENDER -------------------
@@ -116,7 +139,9 @@ function ProductDetails() {
             alt=""
             className={`${styles.pImage} ${styles.centerImg}`}
             style={{
-              transform: `translate(-50%, -50%) translateY(${offsetY * 0.35}px)`,
+              transform: `translate(-50%, -50%) translateY(${
+                offsetY * 0.35
+              }px)`,
               position: "absolute",
               top: "50%",
               left: "50%",
@@ -245,7 +270,7 @@ function ProductDetails() {
                   className={`${styles.cartBtn} ${
                     buttonState[item.id] === "added" ? styles.success : ""
                   }`}
-                  onClick={() => handleAddRelated(item.id)}
+                  onClick={() => handleAddRelated(item)}
                   disabled={buttonState[item.id] === "loading"}
                 >
                   {!buttonState[item.id] && "Add to cart"}
@@ -258,9 +283,30 @@ function ProductDetails() {
                 </button>
 
                 {buttonState[item.id] === "added" && (
-                  <Link to="/cart" className={styles.viewCart}>
+                  <p
+                    className={styles.viewCart}
+                    onClick={() => {
+                      // add again just to ensure it's in cart
+                      addToCart({
+                        id: item.id,
+                        name: item.name,
+                        price: Number(item.price.replace("$", "")),
+                        quantity: 1,
+                        image: item.img,
+                      });
+
+                      toast.success("Redirecting to cart...", {
+                        position: "top-center",
+                        autoClose: 1000,
+                      });
+
+                      setTimeout(() => {
+                        navigate("/cart");
+                      }, 1000);
+                    }}
+                  >
                     View cart
-                  </Link>
+                  </p>
                 )}
               </div>
             </div>
