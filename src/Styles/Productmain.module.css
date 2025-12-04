@@ -1,0 +1,41 @@
+/* MAIN CONTAINER */
+.main {
+  background-color: #1f242b;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 0;
+  align-items: center;
+}
+
+.main1 h1 {
+  color: white;
+  font-size: 60px;
+}
+
+
+.main2 {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+}
+
+/* LEFT & RIGHT IMAGES */
+.pImage {
+  width: 160px;
+  height: 250px;
+  border-radius: 200px;
+  object-fit: cover;
+  transition: transform 0.2s linear;
+}
+
+/* CENTER IMAGE (Larger + Lower + Parallax Allowed) */
+.centerImg {
+  width: 160px;
+  height: 250px;
+  border-radius: 200px;
+  margin-top: 50px;     /* slightly lower */
+  object-fit: cover;
+  transition: transform 0.2s linear;
+}
