@@ -1,39 +1,232 @@
 .main {
-    width: 100%;
-    background: #1f242b;
+    background-color: #1f242b;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 90px;
-    overflow: hidden;   
-    box-sizing: border-box;
+    justify-content: space-around !important;
+    height: 50vh;
+}
+
+.main1 {
+    color: white;
+    margin-top: 90px;
 }
 
 .main1 h1 {
-    color: white;
-    font-size: 55px;
-    font-weight: 700;
+    font-size: 60px;
     font-family: sans-serif;
-    margin: 0;
 }
 
 .main2 {
     display: flex;
-    gap: 30px;
-    align-items: center;
-}
-.main2 img{
-    width: 200px;
-    height:280px;
-    border-radius: 200px;
-}
-.imgStyle {
-    width: 170px;      
-    height: 280px;
-    object-fit: cover;
-    border-radius: 150px;
+    gap: 35px;
 }
 
-.middleImg {
-    margin-top: 100px;    
+.main2 img {
+    width: 180px;
+    height: 250px;
+    border-radius: 200px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+    opacity: 0;
+    transform-origin: center;
+}
+.bottom {
+    animation: smoothDown 1.8s cubic-bezier(.22,.9,.35,1) forwards;
+}
+@keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(40px)  ;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) ;
+    }
+}
+
+@keyframes smoothDown {
+    0% {
+        transform: translateY(-120px) ;
+        opacity: 0;
+    }
+    55% {
+        transform: translateY(8px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.imgi {
+     margin-top: 70px;
+    animation: fadeSlide 1.4s ease-out forwards;
+}
+
+@keyframes smoothUp {
+    0% {
+        transform: translateY(140px) ;
+        opacity: 0;
+        filter: brightness(0.2) blur(3px);
+    }
+    60% {
+        transform: translateY(-8px) ;
+        opacity: 1;
+        filter: brightness(1) blur(0px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .main2 img {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 80px;
+    background: black;
+    box-sizing: border-box;
+}
+
+.mapCircle {
+    width: 600px;
+    height: 130vh;
+    border-radius: 45%;
+    overflow: hidden;
+}
+
+.mapCircle {
+    width: 500px;        
+    height: 110vh;
+    border-radius: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: none;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.rightSection {
+    width: 50%;
+    color: white;
+    margin-left: 20px;
+}
+
+.title {
+    font-size: 55px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+.text {
+    color: #bfc3c9;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+.info p {
+    margin: 8px 0;
+    font-size: 17px;
+    color: #cfd3d8;
+}
+
+.form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form input,
+.form textarea {
+    width: 90%;
+    padding: 18px 20px;
+    border-radius: 40px;
+    border: 1px solid rgb(87, 85, 85);
+    outline: none;
+    font-size: 16px;
+    background: #1a1f24;
+    color: white;
+}
+
+.btn {
+    border: none;
+    background-color: #b3773b;
+    border-radius: 40px;
+    width: 90%;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: transparent;
+    border: 1px solid white !important;
+    padding: 10px;
+    font-weight: bold;
+    width: 90%;
+}
+.view{
+  background:  #272b30;
+  color: white;
+  text-align: center;
+}
+.wrapper {
+    width: 100%;
+    background:black;  
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    background: #171b20;
+    width: 80%;
+    padding: 70px 50px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.box h1 {
+    color: white;
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.box p {
+    color: #cdd0d4;
+    margin: 0 auto 40px auto;  
+}
+
+.btnn {
+    background: #b3773b;
+    border: none;
+    padding: 14px 40px;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    border-radius: 40px;
+    width: 200px;
+    transition: 0.3s ease;
+}
+
+.btnn:hover {
+    background: transparent;
+    border: 2px solid #b3773b;
 }
