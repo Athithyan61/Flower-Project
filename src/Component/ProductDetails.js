@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { useCart } from "./CartContext";
+
 import styles from "../Styles/ProductDetails.module.css";
 
-// Example fallback list (for refresh)
+// Fallback products
 import f1 from "../Images/f1.png";
 import f2 from "../Images/f2.png";
 import f3 from "../Images/f3.png";
@@ -16,12 +18,23 @@ const productList = [
 export default function ProductDetails() {
   const { state: product } = useLocation();
   const { name } = useParams();
+  const navigate = useNavigate();
   const imageRef = useRef(null);
+  const { addToCart } = useCart();
+  const [qty, setQty] = useState(1);
 
-  // fallback if user refreshes page
   const currentProduct = product || productList.find((p) => p.name === name);
-
   if (!currentProduct) return <h2>Product Not Found</h2>;
+
+  const handleAddToCart = () => {
+    const productToAdd = {
+      ...currentProduct,
+      price: Number(currentProduct.newPrice), // numeric price
+      quantity: Number(qty), // numeric quantity
+    };
+    addToCart(productToAdd);
+    navigate("/cart");
+  };
 
   const handleMove = (e) => {
     const img = imageRef.current;
@@ -37,7 +50,6 @@ export default function ProductDetails() {
 
   return (
     <div className={styles.page}>
-      {/* LEFT IMAGE */}
       <div
         className={styles.leftBox}
         onMouseMove={handleMove}
@@ -51,7 +63,6 @@ export default function ProductDetails() {
         />
       </div>
 
-      {/* RIGHT SIDE */}
       <div className={styles.rightBox}>
         <p className={styles.breadcrumb}>
           Home / Category / <span>{currentProduct.name}</span>
@@ -60,18 +71,36 @@ export default function ProductDetails() {
         <h1 className={styles.title}>{currentProduct.name}</h1>
 
         <p className={styles.price}>
-          {/* <span className={styles.oldPrice}>${currentProduct.oldPrice}</span> */}
-          <span className={styles.salePrice}>${currentProduct.newPrice}</span>
+          <p className={styles.price}>
+            <span className={styles.oldPrice}>
+              ${Number(currentProduct.oldPrice).toFixed(2)}
+            </span>
+            <span className={styles.newPrice}>
+              ${Number(currentProduct.newPrice).toFixed(2)}
+            </span>
+          </p>
         </p>
-
+        <div className={styles.line}></div>
         <div className={styles.actionRow}>
-          <button className={styles.qtyBtn}>1</button>
-          <button className={styles.addBtn}>Add to cart</button>
+          <input
+            className={styles.act}
+            type="number"
+            min="1"
+            value={qty}
+            onChange={(e) => setQty(Math.max(1, Number(e.target.value)))}
+          />
+          <button className={styles.addBtn} onClick={handleAddToCart}>
+            Add to cart
+          </button>
         </div>
 
         <p className={styles.description}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-          tellus luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          tellus luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum
+          dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus
+          nec ullamcorper mattis, pulvinar dapibus leo. Dolor sit amet,
+          consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
+          mattis, pulvinar dapibus leo.
         </p>
       </div>
     </div>

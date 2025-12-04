@@ -8,10 +8,10 @@ import p8 from "../Images/p8.png";
 
 export default function BestSelling() {
   const bestSellingProducts = [
-    { name: "Blossom Noir", newPrice: "31.00", image: p5 },
+    { name: "Blossom Noir", oldPrice: "22.00",newPrice: "31.00", image: p5 },
     { name: "Orchid Flower", oldPrice: "22.00", newPrice: "18.00", image: p6 },
-    { name: "Pampas Grass", newPrice: "33.00", image: p7 },
-    { name: "Camellia Pink", newPrice: "25.00", image: p8 },
+    { name: "Pampas Grass",oldPrice: "22.00", newPrice: "33.00", image: p7 },
+    { name: "Camellia Pink",oldPrice: "22.00", newPrice: "25.00", image: p8 },
   ];
 
   return (
