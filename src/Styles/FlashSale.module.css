@@ -1,10 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+
 .flashContainer {
   display: flex;
   gap: 50px;
-  padding: 30px;
+  padding: 50px;
   background: #14181f;
   color: white;
   overflow: hidden;
+ 
 }
 
 .flashLeft {
@@ -32,6 +35,7 @@
   font-weight: bold;
   cursor: pointer;
   font-size: 13px;
+    font-family: "Syne", sans-serif;
 }
 
 .flashRight {
@@ -90,8 +94,12 @@
   height: 330px;
   border: 1px solid #363636;
   padding: 20px;
+    transition: 0.3s ease;
 }
-
+.cardBox:hover {
+  border-color: #d9a96c;
+   transform: translateY(-4px);
+}
 .cardBox h3 {
   margin: 0;
   margin-bottom: 5px;
@@ -102,6 +110,8 @@
 .price {
   margin: 0;
   font-size: 16px;
+    font-family: "Syne", sans-serif;
+
 }
 
 .price del {
@@ -111,7 +121,9 @@
 .price span {
   margin-left: 10px;
   font-weight: 700;
+    font-family: "Syne", sans-serif;
 }
+
 
 .productImg {
   width: 180px;
