@@ -1,18 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
 
 .main {
-  background-color: #1f242b;
+  background-color: #1e2125;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
    padding: 40px;
    overflow: hidden;
 }
 .main1 h1 {
-  color: white;
-  font-size: 50px;
+  color: white !important;
+  font-size: 3rem ;
   font-weight:700;
-    font-family: "Syne", sans-serif;
+  font-family: "Syne", sans-serif;
  
 }
 .main2 {

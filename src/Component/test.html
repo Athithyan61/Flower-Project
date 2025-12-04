@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Image Animation</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  color: white;
+}
+
+/* SECTION */
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px;
+}
+
+/* IMAGE */
+img {
+  width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* TEXT */
+.text {
+  max-width: 400px;
+}
+
+/* ANIMATION BASE */
+.animate {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.from-left { transform: translateX(-100px); }
+.from-right { transform: translateX(100px); }
+.from-bottom { transform: translateY(100px); }
+.zoom { transform: scale(0.6); }
+
+/* SHOW */
+.show {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="section">
+  <h1>Scroll Down 👇</h1>
+</div>
+
+<div class="section">
+  <img src="flower.jpg" class="animate from-left">
+  <div class="text animate from-right">
+    <h2>Beautiful Flower</h2>
+    <p>This image slides in when you scroll.</p>
+  </div>
+</div>
+
+<div class="section">
+  <img src="flower2.jpg" class="animate zoom">
+  <div class="text animate from-bottom">
+    <h2>Nature View</h2>
+    <p>Zoom and fade animation on scroll.</p>
+  </div>
+</div>
+
+<script>
+const animatedElements = document.querySelectorAll(".animate");
+
+window.addEventListener("scroll", () => {
+  animatedElements.forEach(el => {
+    const position = el.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (position < screenHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
