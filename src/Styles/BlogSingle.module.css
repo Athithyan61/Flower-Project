@@ -12,7 +12,6 @@
 
 .blogs h1 {
   font-size: 70px;
-  font-family: sans-serif;
   font-weight: 600;
 }
 
@@ -92,6 +91,7 @@
 
 .Mainblogsingle {
   background: #0f0f0f;
+  padding-top: 50px;
 }
 
 .blogDetailsWrapper {
@@ -220,7 +220,8 @@
   cursor: pointer;
   margin-top: 10px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 20px;
+  color: #ccc;
 
 }
 
@@ -253,7 +254,7 @@
 .scrollContent {
   display: flex;
   flex-direction: column;
-  animation: scrollUp 14s linear infinite;
+  animation: scrollUp 12s linear infinite;
 
 }
 

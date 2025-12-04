@@ -2,7 +2,7 @@
   background-color: #1f242b;
   display: flex;
   justify-content: space-around !important;
-  height: 50vh;
+  height: 49vh;
 }
 
 .blogs {
@@ -142,4 +142,3 @@
   color: #ccc;
 }
 
-/* <==========================blogSingle.module.css========================> */

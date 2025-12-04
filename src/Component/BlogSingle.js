@@ -9,6 +9,7 @@ import { IoIosContact } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
 
 
+
 function BlogSingle() {
   const navigate = useNavigate();
 
@@ -44,6 +45,7 @@ const validateForm = () => {
   if (!formData.comment.trim()) newErrors.comment = "Please fill this required field !";
   if (!formData.name.trim()) newErrors.name = "Please fill this required field !";
   if (!formData.email.trim()) newErrors.email = "Please fill this required field!";
+  if (!formData.website.trim()) newErrors.website = "Please fill this required field!";
 
   return newErrors;
 };
@@ -145,6 +147,8 @@ const handleSubmit = (e) => {
                 value={formData.website}
                 onChange={handleChange}
               />
+               {errors.website && <p className={styles.error}>{errors.website}</p>}
+
 
               <div className={styles.checkboxrow}>
                 <input type="checkbox" id="saveInfo" className={styles.check} />

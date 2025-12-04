@@ -68,7 +68,7 @@ function Blog() {
           <h1> Our Blog</h1>
         </div>
         <div className={styles.images3}>
-          <img src={img1} alt='' className={styles.bottom} />
+          <img src={img1} alt='' className={styles.bottom}  />
           <img src={img2} alt='' className={styles.imgi} />
           <img src={img3} alt='' className={styles.bottom} />
         </div>
