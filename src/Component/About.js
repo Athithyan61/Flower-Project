@@ -1,14 +1,31 @@
-import React from 'react'
-import styles from "../Styles/about.module.css"
+import React,{useState,useEffect} from 'react'
+import styles from "../Styles/about.module.css";
+import classes from "../Styles/Productmain.module.css";
+
 import { Col, Container, Row } from "react-bootstrap"
 import rose from "../Images/rose.jpg"
-import flower2 from "../Images/flower2"
+import rose2 from "../Images/flower2"
+import flower from "../S-images/flr1.jpg";
+import flower1 from "../S-images/flr2.jpg";
+import flower2 from "../S-images/flr3.jpg";
+import AboutFaq from './AboutFaq';
 export default function About() {
+    const [offsetY, setOffsetY] = useState(0);
+    
+      const handleScroll = () => {
+        setOffsetY(window.scrollY);
+      };
+    
+      useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
     return (
         <div className={styles.main}>
+           
             <div className={styles.about}>
                 <div className="container">
-                    <div className={styles.title}>
+                    {/* <div className={styles.title}>
                         <h1>About Us</h1>
                     </div>
                     <div className={styles.images}>
@@ -21,7 +38,43 @@ export default function About() {
                         <div className={styles.three}>
 
                         </div>
+                    </div> */}
+                     <div className={classes.main}>
+                    <div className={styles.title}>
+                      <h1>About Us </h1>
                     </div>
+            
+                    <div className={classes.main2}>
+                      <img
+                        src={flower}
+                        alt=""
+                        className={classes.pImage}
+                        style={{ transform: `translateY(${offsetY * -0.25}px)` }}
+                      />
+            
+                      <img
+                        src={flower1}
+                        alt=""
+                        className={`${classes.pImage} ${classes.centerImg}`}
+                        style={{
+                          position: "absolute",
+                          top: "50%",
+                          left: "50%",
+                          transform: `translate(-50%, -50%) translateY(${
+                            offsetY * 0.35
+                          }px)`,
+                          zIndex: 1,
+                        }}
+                      />
+            
+                      <img
+                        src={flower2}
+                        alt=""
+                        className={classes.pImage}
+                        style={{ transform: ` translateY(${offsetY * -0.2}px) ` }}
+                      />
+                    </div>
+                  </div>
                 </div>
             </div>
 
@@ -39,7 +92,7 @@ export default function About() {
                                 <h1> Make Your Home as Comfortable as Possible</h1>
                                 <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                                 <div className={styles.curve}>
-                                    <img src={flower2} alt="" />
+                                    <img src={rose2} alt="" />
                                 </div>
                                 <div className={styles.conlist}>
                                     <ul>
@@ -82,7 +135,7 @@ export default function About() {
             {/* Third Grid */}
             <div className={styles.thirdContainer}>
                 <div className="container pt-5">
-                    <div className={styles.heads}>
+                    <div className={styles.heads} data-aos="fade-up" data-aos-duration="700">
                         <h1>Why Should You Choose Us to Beautify Your Home?</h1>
                     </div>
                     <div className={`${styles.fourReasons} d-flex`}>
@@ -130,6 +183,8 @@ export default function About() {
                     </div>
                 </div>
             </div>
+            {/* Frequently Asked Questions */}
+            <AboutFaq/>
         </div>
     )
 }
