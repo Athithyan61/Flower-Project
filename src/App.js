@@ -6,9 +6,11 @@ import Blog from "./Component/Blog";
 import Contact from "./Component/Contact";
 import Product from "./Component/Product";
 import Hero from "./Component/Home";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Faq1 from "./Component/Faq1";
 import BlogSingle from "./Component/BlogSingle";
+import ProductDetails from "./Component/ProductDetails";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogSingle />} />
         <Route path="/faq" element={<Faq1 />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:name" element={<ProductDetails />} />
       </Routes>
     </BrowserRouter>
   );
