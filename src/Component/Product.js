@@ -3,6 +3,11 @@ import styles from "../Styles/Productmain.module.css";
 import flower from "../S-images/flr1.jpg";
 import flower1 from "../S-images/flr2.jpg";
 import flower2 from "../S-images/flr3.jpg";
+import BestSelling from "./BestSelling";
+import FlashSale from "./FlashSale";
+import LatestProducts from "./LatestProducts";
+import Services from "./Service";
+import Footer from "./Footer";
 
 export default function Product() {
   const [offsetY, setOffsetY] = useState(0);
@@ -20,11 +25,10 @@ export default function Product() {
     <>
       <div className={styles.main}>
         <div className={styles.main1}>
-          <h1>Contact Us</h1>
+          <h1>Product Archive</h1>
         </div>
 
         <div className={styles.main2}>
-          {/* Left image */}
           <img
             src={flower}
             alt=""
@@ -32,25 +36,34 @@ export default function Product() {
             style={{ transform: `translateY(${offsetY * -0.25}px)` }}
           />
 
-          {/* Center image (lower + parallax) */}
           <img
             src={flower1}
             alt=""
             className={`${styles.pImage} ${styles.centerImg}`}
             style={{
-              transform: `translateY(${offsetY * 0.2}px)`, // center moves down
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: `translate(-50%, -50%) translateY(${
+                offsetY * 0.35
+              }px)`,
+              zIndex: 1,
             }}
           />
 
-          {/* Right image */}
           <img
             src={flower2}
             alt=""
             className={styles.pImage}
-            style={{ transform: `translateY(${offsetY * -0.2}px)` }}
+            style={{ transform: ` translateY(${offsetY * -0.2}px) ` }}
           />
         </div>
       </div>
+      <BestSelling />
+      <FlashSale />
+      <LatestProducts />
+      <Services />
+      <Footer />
     </>
   );
 }
