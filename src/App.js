@@ -23,6 +23,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogSingle />} />
         <Route path="/faq" element={<Faq1 />} />
+        <Route path="/Faq1" element={<Faq1 />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/product/:name" element={<ProductDetails />} />
       </Routes>
