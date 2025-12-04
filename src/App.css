@@ -1,1 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap'); 
+
+.accordion-button:not(.collapsed) {
+  color: inherit !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #31363C !important;
+
+}
+
+.accordion-button {
+  box-shadow: none !important;
+  padding: 1.3rem;
+}
+
+#acord .accordion-button:not(.collapsed),
+#accordionFlushExample .accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+  .accordian-item {
+    margin: 0rem 2rem !important;
+  }
+  #flush-collapseSix{
+    border-bottom: 1px solid black !important;
+  }
+}
