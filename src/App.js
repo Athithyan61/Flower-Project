@@ -1,9 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-<<<<<<< HEAD
 import'./App.css';
-=======
->>>>>>> 19fc7d0911d063c353e19797dc5456ff2e0d2628
 import Navbar from "./Component/Navbar";
 import About from "./Component/About";
 import Blog from "./Component/Blog";

@@ -5,7 +5,51 @@
     scroll-behavior: smooth;
     overflow: hidden !important;
 }
+.mainn {
+  background-color: #1f242b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+   padding: 40px;
+   overflow: hidden;
+   font-family: "Syne", sans-serif;
+}
 
+.main1 h1 {
+  color: white;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.main2 {
+  display: flex;
+  gap: 220px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.pImage {
+  width: 180px;
+  height: 250px;
+  border-radius: 200px;
+  object-fit: cover;
+  transition: transform 0.2s linear;
+  position: relative;
+  bottom: 45px;
+
+}
+
+.centerImg {
+  margin-top: 55px;
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+ 
+}
 .about {
     height: 35vh;
     background-color: #1e2125;
