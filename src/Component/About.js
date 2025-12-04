@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import styles from "../Styles/about.module.css";
-import classes from "../Styles/Productmain.module.css";
-
+// import classes from "../Styles/Productmain.module.css";
 import { Col, Container, Row } from "react-bootstrap"
 import rose from "../Images/rose.jpg"
 import rose2 from "../Images/flower2"
@@ -9,6 +8,7 @@ import flower from "../S-images/flr1.jpg";
 import flower1 from "../S-images/flr2.jpg";
 import flower2 from "../S-images/flr3.jpg";
 import AboutFaq from './AboutFaq';
+import Footer from './Footer';
 export default function About() {
     const [offsetY, setOffsetY] = useState(0);
     
@@ -21,63 +21,44 @@ export default function About() {
         return () => window.removeEventListener("scroll", handleScroll);
       }, []);
     return (
+        <>
         <div className={styles.main}>
            
-            <div className={styles.about}>
-                <div className="container">
-                    {/* <div className={styles.title}>
-                        <h1>About Us</h1>
-                    </div>
-                    <div className={styles.images}>
-                        <div className={styles.one}>
-
-                        </div>
-                        <div className={styles.two}>
-
-                        </div>
-                        <div className={styles.three}>
-
-                        </div>
-                    </div> */}
-                     <div className={classes.main}>
-                    <div className={styles.title}>
-                      <h1>About Us </h1>
+            <div className={styles.mainn}>
+                    <div className={styles.main1}>
+                      <h1>About Us</h1>
                     </div>
             
-                    <div className={classes.main2}>
+                    <div className={styles.main2}>
                       <img
                         src={flower}
                         alt=""
-                        className={classes.pImage}
+                        className={styles.pImage}
                         style={{ transform: `translateY(${offsetY * -0.25}px)` }}
                       />
             
                       <img
-                        src={flower1}
-                        alt=""
-                        className={`${classes.pImage} ${classes.centerImg}`}
-                        style={{
-                          position: "absolute",
-                          top: "50%",
-                          left: "50%",
-                          transform: `translate(-50%, -50%) translateY(${
-                            offsetY * 0.35
-                          }px)`,
-                          zIndex: 1,
-                        }}
-                      />
+              src={flower1}
+              alt=""
+              className={`${styles.pImage} ${styles.centerImg}`}
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: `translate(-50%, -50%) translateY(${offsetY * 0.35}px)`,
+                zIndex: 1                 
+              }}
+            />
             
                       <img
                         src={flower2}
                         alt=""
-                        className={classes.pImage}
-                        style={{ transform: ` translateY(${offsetY * -0.2}px) ` }}
+                        className={styles.pImage}
+                        style={{ transform:` translateY(${offsetY * -0.2}px) `}}
                       />
                     </div>
                   </div>
-                </div>
-            </div>
-
+            
             {/* second grid */}
             <div className={styles.second}>
                 <Container>
@@ -186,5 +167,7 @@ export default function About() {
             {/* Frequently Asked Questions */}
             <AboutFaq/>
         </div>
+        <Footer />
+        </>
     )
 }
