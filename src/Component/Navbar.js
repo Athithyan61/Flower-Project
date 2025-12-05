@@ -1,21 +1,13 @@
 import React, { useState } from "react";
 import styles from "../Styles/Navbar.module.css";
-import logo from "../Images/logo.png";
-import { useCart } from "./CartContext"; // <-- import cart context
+import { useCart } from "./CartContext";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const { cart } = useCart(); // get cart items from context
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const { cart } = useCart();
 
-  const handleClick = () => {
-    setOpen(!open); // toggle dropdown
-  };
-
-  // calculate total price
-  const totalPrice = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
@@ -23,23 +15,25 @@ export default function Navbar() {
       <div className={styles.navbar1}>
         <header className={styles.navbar}>
           <div className={styles.logoSection}>
-            <img src={logo} alt="Kembang Logo" className={styles.logoIcon} />
+            <h1 className={styles.logoIcon}>Dazzling Sky</h1>
 
             <nav className={styles.navLinks}>
               <a href="/">Home</a>
               <a href="/about">About</a>
               <a href="/products">Products</a>
 
-              {/* CLICK dropdown */}
               <div className={styles.dropdown}>
-                <span className={styles.dropBtn} onClick={handleClick}>
+                <span
+                  className={styles.dropBtn}
+                  onClick={() => setOpenDropdown(!openDropdown)}
+                >
                   Pages ▾
                 </span>
 
-                {open && (
+                {openDropdown && (
                   <div className={styles.dropdownMenu}>
                     <a href="/blog">Blog</a>
-                    <a href="/faq">Faq</a>
+                    <a href="/faq">FAQ</a>
                   </div>
                 )}
               </div>
@@ -48,17 +42,47 @@ export default function Navbar() {
             </nav>
           </div>
 
-          <div className={styles.cartSection}>
+          <div className={styles.cartSection} onClick={() => setOpenCart(true)}>
             <span className={styles.price}>${totalPrice.toFixed(2)}</span>
+
             <div className={styles.cartIcon}>
-              <span role="img" aria-label="cart">
-                🛒
-              </span>
-              <span className={styles.cartCount}>({totalItems})</span>
+              🛒
+              <span className={styles.cartCount}>{totalItems}</span>
             </div>
           </div>
         </header>
       </div>
+
+      {/* ---------- CART DRAWER ---------- */}
+      <div className={`${styles.offCanvas} ${openCart ? styles.showCart : ""}`}>
+        
+        <div className={styles.cartHeader}>
+          <h3>Your Cart</h3>
+          <button onClick={() => setOpenCart(false)}>✕</button>
+        </div>
+
+        <div className={styles.cartItems}>
+          {cart.length === 0 ? (
+            <p>Your cart is empty</p>
+          ) : (
+            cart.map((item) => (
+              <div className={styles.cartItem} key={item.id}>
+                <img src={item.image} alt={item.name} className={styles.cartItemImage} />
+                <div className={styles.cartItemInfo}>
+                  <p className={styles.itemName}>{item.name}</p>
+                  <p className={styles.itemPrice}>${(item.price * item.quantity).toFixed(2)}</p>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* ------ VIEW CART BUTTON ------ */}
+        <button className={styles.viewCartBtn}>View Cart</button>
+      </div>
+
+      {/* Overlay */}
+      {openCart && <div className={styles.cartOverlay} onClick={() => setOpenCart(false)}></div>}
     </>
   );
 }

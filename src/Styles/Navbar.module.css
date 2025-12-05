@@ -1,35 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
 
-.cartSection {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* space between price and cart */
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.cartIcon {
-  position: relative;
-  font-size: 24px; /* larger cart icon */
-  display: flex;
-  align-items: center;
-}
-
-.cartCount {
-  position: absolute;
-  top: -8px;
-  right: -10px;
-  background: #ff4d4f; /* red badge */
-  color: white;
-  border-radius: 50%;
-  font-size: 12px;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
+/* NAVBAR ------------------------------------------------------------ */
 
 .navbar {
   display: flex;
@@ -38,75 +9,23 @@
   padding: 40px 50px;
   background: #0f1112;
   color: #ffffff;
-  font-family: "Syne", sans-serif;
+  position: relative;
 }
+
 .navbar1 {
   overflow: visible;
-}
-
-.navbar1,
-.navbar {
-  position: relative;
-  z-index: 9999;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropBtn {
-  cursor: pointer;
-  padding: 0 10px;
-  font-size: 18px;
-  font-family: "Syne", sans-serif;
-}
-
-.dropdownMenu {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  background: #1c1f23;
-  padding: 12px 20px;
-  border-radius: 4px;
-  min-width: 150px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 99999;
-}
-
-.dropdownMenu a {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.dropdownMenu a:hover {
-  color: #cfa05f;
 }
 
 .logoSection {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
 }
 
 .logoIcon {
-  width: 190px;
-  height: auto;
-}
-
-.logoText h1 {
-  font-size: 28px;
-  margin: 0;
-  font-weight: 600;
-}
-
-.logoText span {
-  letter-spacing: 6px;
-  font-size: 12px;
-  color: #c6c6c6;
+  font-family: "Kaushan Script", cursive;
+  font-size: 2.5rem;
+  color: #b3773b;
 }
 
 .navLinks {
@@ -116,20 +35,62 @@
 }
 
 .navLinks a {
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   font-size: 18px;
   transition: 0.3s;
+  font-family: "Syne", sans-serif;
 }
 
 .navLinks a:hover {
   color: #d6a35a;
 }
 
+/* DROPDOWN ----------------------------------------------------------- */
+
+.dropdown {
+  position: relative;
+}
+
+.dropBtn {
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Syne", sans-serif;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #1c1f23;
+  padding: 12px 20px;
+  border-radius: 6px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+  z-index: 99999;
+}
+
+.dropdownMenu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Syne", sans-serif;
+}
+
+.dropdownMenu a:hover {
+  color: #cfa05f;
+}
+
+/* CART SECTION -------------------------------------------------------- */
+
 .cartSection {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  cursor: pointer;
 }
 
 .price {
@@ -140,46 +101,146 @@
 
 .cartIcon {
   background: #c78a3a;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 14px;
-}
-.dropdown {
+  color: white;
   position: relative;
-  display: inline-block;
+  font-size: 16px;
+  font-family: "Syne", sans-serif;
 }
 
-.dropBtn {
-  cursor: pointer;
-  padding: 0 10px;
-}
-
-.dropdownMenu {
+.cartCount {
+  background: #ff3b3b;
+  color: white;
+  font-size: 11px;
+  font-family: "Syne", sans-serif;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  top: 35px;
-  left: 0;
-  background: #1c1f23;
-  padding: 12px 20px;
-  border-radius: 4px;
-  min-width: 75px;
+  top: -7px;
+  right: -7px;
+  font-weight: bold;
+}
+
+/* OFF CANVAS CART ----------------------------------------------------- */
+
+.offCanvas {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 350px;
+  height: 100vh;
+  background-color: #141414;
+
+  z-index: 2000;
+  padding: 20px;
+  overflow-y: auto;
+  transition: 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 99999;
 }
 
-.dropdownMenu a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 18px;
+.showCart {
+  right: 0;
 }
 
-.dropdownMenu a:hover {
-  color: #cfa05f;
+.cartOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1500;
+}
+
+/* CART HEADER ---------------------------------------------------------- */
+
+.cartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  color: #edebeb;
+}
+
+.cartHeader button {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-family: "Syne", sans-serif;
+  cursor: pointer;
+  color: #edebeb;
+}
+
+/* CART ITEMS ----------------------------------------------------------- */
+
+.cartItems {
+  flex: 1;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cartItem {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.cartItemImage {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cartItemInfo {
+  display: flex;
+  flex-direction: column;
+  color: #edebeb;
+}
+
+.itemName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #edebeb;
+  font-family: "Syne", sans-serif;
+}
+
+.itemPrice {
+  font-size: 14px;
+  color: #edebeb;
+  font-family: "Syne", sans-serif;
+}
+
+/* VIEW CART BUTTON ---------------------------------------------------- */
+
+.viewCartBtn {
+  width: 100%;
+  padding: 10px;
+  background: #c78a3a;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-family: "Syne", sans-serif;
+  border-radius: 6px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.viewCartBtn:hover {
+  background: #ae762f;
 }

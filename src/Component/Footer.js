@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../Styles/Footer.module.css";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
-import logo from "../Images/logo.png"
+
 const Footer = () => {
   return (
     <footer className={styles.footer}>
@@ -70,7 +70,7 @@ const Footer = () => {
         </ul>
 
         <div className={styles.logo}>
-          <img src={logo} alt="Kembang Logo" />
+          <h1 className={styles.logoIcon }>Dazzling Sky</h1>
         </div>
 
         <div className={styles.social}>
@@ -83,7 +83,7 @@ const Footer = () => {
       </div>
       <div className={styles.divider}></div>
 
-      <p className={styles.copy}>Copyright © All Right Reserved</p>
+      <p className={styles.copy}>Softnova Technology</p>
     </footer>
   );
 };

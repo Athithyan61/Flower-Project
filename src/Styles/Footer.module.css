@@ -158,6 +158,11 @@
   color: #9aa2ac;
   font-family: "Syne", sans-serif;
 }
+.logoIcon {
+  font-family: "Kaushan Script", cursive;
+  font-size: 2.5rem;
+  color: #b3773b;
+}
 .heading {
   direction: rtl;
   font-size: 22px;

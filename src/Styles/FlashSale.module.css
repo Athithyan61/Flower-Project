@@ -24,7 +24,7 @@
 
 .viewBtn {
   position: absolute;
-  bottom: 25px;
+  bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
   background: #d6862d;

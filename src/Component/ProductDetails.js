@@ -24,9 +24,9 @@ import p4 from "../S-images/p4.png";
 import Footer from "./Footer";
 
 const productList = [
-  { name: "Rose Red", oldPrice: 35, newPrice: 25, image: f1 },
-  { name: "Flowers Gerbera", oldPrice: 19, newPrice: 18, image: f2 },
-  { name: "Olive Branches", oldPrice: 28, newPrice: 25, image: f3 },
+  { name: "Rose Red", oldPrice: 200, newPrice: 150, image: f1 },
+  { name: "Flowers Gerbera", oldPrice: 250, newPrice: 200, image: f2 },
+  { name: "Olive Branches", oldPrice: 150, newPrice: 100, image: f3 },
 ];
 
 const products = [
@@ -73,13 +73,13 @@ function ProductDetails() {
 
     toast.success("Your product is added to the basket!", {
       position: "top-center",
-      autoClose: 1500, // popup stays visible
+      autoClose: 2000, // popup stays visible
     });
 
     // WAIT 1.5 sec → then navigate
     setTimeout(() => {
       navigate("/cart");
-    }, 1500);
+    }, 2500);
   };
 
   // ------------------- Image hover move effect -------------------
@@ -297,12 +297,12 @@ function ProductDetails() {
 
                       toast.success("Redirecting to cart...", {
                         position: "top-center",
-                        autoClose: 1000,
+                        autoClose: 1500,
                       });
 
                       setTimeout(() => {
                         navigate("/cart");
-                      }, 1000);
+                      }, 2500);
                     }}
                   >
                     View cart
