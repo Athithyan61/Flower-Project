@@ -1,4 +1,31 @@
 /* MAIN PAGE */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer {
+  background: #1e2125;
+  padding: 70px 60px 9px;
+  color: white;
+  font-family: "Syne", sans-serif;
+    padding: 70px 60px 9px;
+}
+/* ==== GRID ==== */
+.topGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 80px;
+}
+
+
+
+
 .main {
   background-color: #1f242b;
   display: flex;

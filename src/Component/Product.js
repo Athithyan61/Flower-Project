@@ -10,6 +10,8 @@ import Services from "./Service";
 import Footer from "./Footer";
 
 export default function Product() {
+  
+  
   const [offsetY, setOffsetY] = useState(0);
 
   const handleScroll = () => {

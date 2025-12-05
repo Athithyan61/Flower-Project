@@ -9,22 +9,40 @@
   overflow: hidden;
  
 }
-
-.flashLeft {
-  position: relative;
+.timerWrapper {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
 }
 
-.flashBigImg {
-  width: 300px;
-  height: 420px;
-  border-radius: 90% / 50%;
-  object-fit: cover;
-  opacity: 0.3;
+.timerBox {
+  background: #0f1114;
+  color: white;
+  width: 75px;
+  height: 75px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.timerBox h3 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.timerBox p {
+  margin: 0;
+  font-size: 12px;
+  color: #b9b9b9;
+}
+
+
 
 .viewBtn {
   position: absolute;
-  bottom: 25px;
+  bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
   background: #d6862d;
@@ -53,6 +71,24 @@
   font-weight: 700;
   font-family: "Syne", sans-serif;
 }
+/* SAME STYLES ABOVE, JUST ADD THESE */
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.timerAnimate {
+  animation: slideFromRight 0.5s ease forwards;
+}
+
+
 
 .timer {
   display: flex;
@@ -130,3 +166,52 @@
   margin-top: 20px;
   display: block;
 }
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* கீழிருந்து 20px கீழே இருந்தது */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* மேலே வந்து வழக்கமான இடத்தில் இருக்கும் */
+  }
+}
+
+.cardBox {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  cursor: pointer;
+  /* Other existing styles */
+}
+
+.cardBox.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+.flashLeft {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(-120px);
+  transition: 0.8s ease;
+}
+
+.animateImage {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.flashBigImg {
+  width: 300px;
+  height: 420px;
+  border-radius: 90% /50%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.3;
+}
+

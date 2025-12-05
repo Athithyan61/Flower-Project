@@ -1,12 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
 
-.footer {
-  background: #1e2125;
-  color: #d1d5db;
-  padding: 70px 60px 9px;
-  font-family: "Syne", sans-serif;
+/* ==== SCROLL FADE-UP ANIMATION ==== */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
 }
 
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer {
+  background: #1e2125;
+  padding: 70px 60px 9px;
+  color: white;
+  font-family: "Syne", sans-serif;
+    padding: 70px 60px 9px;
+}
 /* ==== GRID ==== */
 .topGrid {
   display: grid;
