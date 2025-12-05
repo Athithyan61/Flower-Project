@@ -5,7 +5,7 @@
   align-items: center;
   padding: 40px 1%;
   background: #22272b;
-  height: 90vh;
+  /* height: 90vh; */
 }
 .hero {
   width: 100%;
@@ -199,7 +199,9 @@
     transform: translateX(0);
   }
 }
+@media(min-width:1441px){
 
+}
 
 
 

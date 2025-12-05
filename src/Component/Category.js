@@ -107,10 +107,12 @@ export default function Category() {
           </div>
         </div>
       </div>
+      <div className={styles.container}>
+
       <div className={styles.aboutSection}>
         <div className={`${styles.aboutLeft} ${styles.animLeft}`} ref={leftRef}>
           <h2 className={styles.hh2}>Make Your Home as Comfortable as Possible</h2>
-          <p>
+          <p className={styles.hh3}>
             I am text block. Click edit button to change this text. Lorem ipsum
             dolor sit amet, consectetur adipiscing elit.
           </p>
@@ -127,6 +129,7 @@ export default function Category() {
           </div>
         </div>
 
+      </div>
       </div>
 
     </section>

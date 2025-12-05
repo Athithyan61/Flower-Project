@@ -1,4 +1,31 @@
 /* MAIN PAGE */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer {
+  background: #1e2125;
+  padding: 70px 60px 9px;
+  color: white;
+  font-family: "Syne", sans-serif;
+    padding: 70px 60px 9px;
+}
+/* ==== GRID ==== */
+.topGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 80px;
+}
+
+
+
+
 .main {
   background-color: #1f242b;
   display: flex;
@@ -48,7 +75,7 @@
 
 .page {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 80px 50px;
   background: #0c0c0d;
   display: flex;
@@ -294,13 +321,20 @@
 }
 
 .submitBtn {
-  background: #bfbfc3;
+  background:#a2712d;
   border: none;
   padding: 5px 20px;
   border-radius: 5px;
   margin-top: 20px;
   cursor: pointer;
   font-weight: bold;
+  transition: 0.3s;
+}
+.submitBtn:hover{
+background: transparent;
+cursor: pointer;
+border: 1px solid #a2712d;
+color: white;
 }
 .container {
   width: 100%;

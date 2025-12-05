@@ -53,7 +53,10 @@
   margin-top: 2rem;
 }
 
-
+.container{
+  max-width: 1500px;
+  
+}
 
 .aboutLeft h2 {
   font-size: 3.3rem;
@@ -63,6 +66,7 @@
 
 .hh2 {
   font-family: "Syne", sans-serif;
+  /* text-align: justify; */
 }
 
 .aboutLeft p {
@@ -193,7 +197,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (min-width: 900px) {
   .aboutLeft {
     max-width: 100%;
     text-align: center;
@@ -206,4 +210,15 @@
   .title {
     text-align: center;
   }
+  .container{
+padding-left: 150px;
+  }
+  .hh2{
+    font-size: 30px;
+    align-items: flex-start;
+  }
+  .hh3{
+  text-align: justify;
+  font-size: 18px;
+}
 }

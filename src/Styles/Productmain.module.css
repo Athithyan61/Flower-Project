@@ -3,7 +3,7 @@
 .main {
   background-color: #1e2125;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
    padding: 40px;
    overflow: hidden;

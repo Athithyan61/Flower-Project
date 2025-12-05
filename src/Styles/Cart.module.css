@@ -188,3 +188,8 @@
 .checkoutBigBtn:hover {
   background: #d19b63;
 }
+@media (min-width:1441px){
+  .cartPage{
+    max-width: 1450px;
+  }
+}

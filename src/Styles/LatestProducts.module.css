@@ -10,7 +10,6 @@
   color: #fff;
   margin-bottom: 30px;
   font-weight: 600;
-
   font-family: "Syne", sans-serif;
 }
 
@@ -20,29 +19,28 @@
   gap: 25px;
 }
 
+/* Base Card Style */
 .card {
   background: #111;
   border: 1px solid #363636;
   padding: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  transition: 0.3s ease;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(25px);
 }
 
+/* Hover */
 .card:hover {
   transform: translateY(-4px);
-}
-
-.card:hover {
   border-color: #d9a96c;
 }
+
 .name {
   color: #fff;
   font-size: 16px;
-  margin: 0 0 6px 0;
-
+  margin-bottom: 6px;
   font-family: "Syne", sans-serif;
 }
 
@@ -51,8 +49,6 @@
   font-size: 15px;
   font-weight: 600;
   font-family: "Syne", sans-serif;
-
-
 }
 
 .oldPrice {
@@ -63,13 +59,19 @@
 
 .salePrice {
   color: #fff;
-  font-weight: bold;
+  font-weight: 700;
   font-family: "Syne", sans-serif;
-
 }
 
 .image {
   width: 100%;
   height: 240px;
   object-fit: contain;
+}
+
+/* When visible - animation triggers */
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }

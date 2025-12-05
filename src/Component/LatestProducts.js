@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../Styles/LatestProducts.module.css";
 import { useNavigate } from "react-router-dom";
+
 import lp1 from "../Images/lp1.png";
 import lp2 from "../Images/lp2.png";
 import lp3 from "../Images/lp3.png";
@@ -23,13 +24,29 @@ const products = [
 
 export default function LatestProducts() {
   const navigate = useNavigate();
-
+  const itemsRef = useRef([]);
+  const [visible, setVisible] = useState({});
 
   const openDetails = (item) => {
     navigate(`/product/${item.name}`, { state: item });
   };
 
-  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = entry.target.dataset.index;
+            setVisible((prev) => ({ ...prev, [index]: true }));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    itemsRef.current.forEach((el) => el && observer.observe(el));
+  }, []);
 
   return (
     <section className={styles.container}>
@@ -38,10 +55,11 @@ export default function LatestProducts() {
       <div className={styles.grid}>
         {products.map((item, index) => (
           <div
-            className={styles.card}
             key={index}
+            data-index={index}
+            ref={(el) => (itemsRef.current[index] = el)}
+            className={`${styles.card} ${visible[index] ? styles.show : ""}`}
             onClick={() => openDetails(item)}
-            style={{ cursor: "pointer" }}
           >
             <div className={styles.textBox}>
               <p className={styles.name}>{item.name}</p>
@@ -49,7 +67,7 @@ export default function LatestProducts() {
               <p className={styles.price}>
                 {item.oldPrice !== item.newPrice ? (
                   <>
-                    <span className={styles.oldPrice}>${item.oldPrice}</span>{" "}
+                    <span className={styles.oldPrice}>${item.oldPrice}</span>
                     <span className={styles.salePrice}>${item.newPrice}</span>
                   </>
                 ) : (
