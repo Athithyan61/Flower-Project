@@ -7,14 +7,14 @@
   font-family: "Syne", sans-serif;
 }
 
-/* ==== GRID ==== */
+
 .topGrid {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 80px;
 }
 
-/* HEADINGS */
+
 .heading1 {
   font-size: 22px;
   font-weight: 600;
@@ -23,7 +23,7 @@
   margin-bottom: 22px;
 }
 
-/* LIST */
+
 .menuList {
   list-style: none;
   padding: 0;
@@ -36,7 +36,7 @@
   font-family: "Syne", sans-serif;
 }
 
-/* ===== CENTER BOX (SUBSCRIBE) ===== */
+
 .centerBox {
   text-align: center;
 }
@@ -94,7 +94,6 @@
   font-family: "Syne", sans-serif;
 }
 
-/* ===== CONTACT ===== */
 .contactInfo {
   font-size: 16px;
   color: #cbd0d6;
@@ -107,14 +106,12 @@
   margin-top: 25px;
 }
 
-/* DIVIDER */
 .divider {
   height: 1px;
   background: #2a303a;
   margin: 18px 0 24px;
 }
 
-/* ===== MIDDLE ROW ===== */
 .middleRow {
   display: flex;
   justify-content: space-between;
@@ -126,6 +123,11 @@
   display: flex;
   gap: 28px;
   padding: 0;
+}
+
+.bottomMenu li:hover {
+  color: #c48b46;
+  cursor: pointer;
 }
 
 .bottomMenu li {
@@ -150,7 +152,16 @@
   font-size: 16px;
 }
 
-/* COPYRIGHT */
+.social span:hover {
+  color: #c48b46;
+  transition: color 1s ease;
+}
+
+.book:hover {
+  color: #c48b46;
+  transition: color 1s ease-in;
+}
+
 .copy {
   text-align: center;
   margin-top: 40px;
@@ -158,6 +169,7 @@
   color: #9aa2ac;
   font-family: "Syne", sans-serif;
 }
+
 .heading {
   direction: rtl;
   font-size: 22px;
@@ -166,7 +178,7 @@
   margin-bottom: 22px;
   font-family: "Syne", sans-serif;
 }
-/* RESPONSIVE */
+
 @media (max-width: 900px) {
   .topGrid {
     grid-template-columns: 1fr;

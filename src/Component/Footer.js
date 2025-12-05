@@ -3,12 +3,17 @@ import styles from "../Styles/Footer.module.css";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import logo from "../Images/logo.png"
+import { useNavigate } from "react-router-dom";
+
 const Footer = () => {
+
+  const navigate = useNavigate();
+  
   return (
     <footer className={styles.footer}>
-      {/* TOP 3 COLUMN GRID */}
+
       <div className={styles.topGrid}>
-        {/* LEFT MENU */}
+
         <div>
           <h3 className={styles.heading1}>Quick Menu</h3>
           <ul className={styles.menuList}>
@@ -20,7 +25,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* CENTER SUBSCRIBE */}
+
         <div className={styles.centerBox}>
           <h2 className={styles.subscribeTitle}>
             Subscribe and Grab <span>70% Off</span>
@@ -42,7 +47,7 @@ const Footer = () => {
           <button className={styles.emailBtn}>Send Email</button>
         </div>
 
-        {/* RIGHT CONTACT */}
+
         <div>
           <h3 className={styles.heading}>Contact Us</h3>
 
@@ -61,12 +66,13 @@ const Footer = () => {
 
       <div className={styles.divider}></div>
 
-      {/* MIDDLE ROW */}
+
       <div className={styles.middleRow}>
+
         <ul className={styles.bottomMenu}>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Blog</li>
+          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/about")}>About Us</li>
+          <li onClick={() => navigate("/blog")}>Blog</li>
         </ul>
 
         <div className={styles.logo}>
@@ -75,10 +81,10 @@ const Footer = () => {
 
         <div className={styles.social}>
           <span>Follow Us</span>
-          <RxCross2 />
-          <FaFacebookF />
-          <FaInstagram />
-          <FaTiktok />
+          <RxCross2 className={styles.book} />
+          <FaFacebookF className={styles.book} />
+          <FaInstagram className={styles.book} />
+          <FaTiktok className={styles.book} />
         </div>
       </div>
       <div className={styles.divider}></div>

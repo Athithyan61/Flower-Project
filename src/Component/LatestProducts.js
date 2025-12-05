@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../Styles/LatestProducts.module.css";
 import { useNavigate } from "react-router-dom";
-
 import lp1 from "../Images/lp1.png";
 import lp2 from "../Images/lp2.png";
 import lp3 from "../Images/lp3.png";
@@ -11,7 +10,6 @@ import lp6 from "../Images/lp6.png";
 import lp7 from "../Images/lp7.png";
 import lp8 from "../Images/lp8.png";
 
-// Product list
 const products = [
   { name: "Areca Palm", oldPrice: 33, newPrice: 33, image: lp1 },
   { name: "Sunflowers", oldPrice: 33, newPrice: 33, image: lp2 },
@@ -26,10 +24,12 @@ const products = [
 export default function LatestProducts() {
   const navigate = useNavigate();
 
-  // Navigate to product details page
+
   const openDetails = (item) => {
     navigate(`/product/${item.name}`, { state: item });
   };
+
+  
 
   return (
     <section className={styles.container}>

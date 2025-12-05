@@ -11,7 +11,7 @@ import imgg5 from '../j-images/cont5';
 import imgg6 from '../j-images/cont6';
 import { BsClock } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 
 function Blog() {
@@ -27,6 +27,11 @@ function Blog() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname]);
 
   const blogData = [
     {

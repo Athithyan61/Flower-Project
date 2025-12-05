@@ -2,64 +2,54 @@
 .hero {
   width: 100%;
   display: grid;
-  /* grid-template-columns: 1.2fr 1fr; */
   align-items: center;
-  /* gap: 40px; */
   padding: 40px 1%;
   background: #22272b;
+  height: 70vh;
 }
 .hero {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* wider left -> right moves closer */
+  grid-template-columns: 1fr 1fr; 
   align-items: center;
   gap: 10px;
-  padding: 40px 3%; /* adds slight side breathing space */
+  padding: 40px 3%;
 }
 
 .heroLeft {
   display: flex;
-  justify-content: flex-end; /* pushes images toward text */
+  justify-content: flex-end; 
 }
 
 .heroGrid {
   display: grid;
-  grid-template-columns: repeat(0.5, 160px); /* slightly smaller image grid */
+  grid-template-columns: repeat(0.5, 160px); 
   grid-auto-rows: 180px;
   gap: 20px;
 }
 
-/* LEFT GRID WRAPPER */
 .heroLeft {
   display: flex;
   justify-content: center;
 }
 
 .heroGrid {
-  display: grid;
-  /* grid-template-columns: repeat(3, 200px); */
+  display: grid; 
   grid-auto-rows: 200px;
-  /* gap: 25px; */
   position: relative;
 }
-
-/* Circle Shape */
 .circle {
   width: 170px;
   height: 170px;
   border-radius: 50%;
   object-fit: cover;
 }
-
-/* Oval Shape */
 .oval {
   width: 185px;
   height: 365px;
   border-radius: 90% / 50%;
   object-fit: cover;
 }
-
-/* PERFECT POSITIONING — EXACT LIKE YOUR REFERENCE */
 .i1 {
   grid-column: 1;
   grid-row: 1;
@@ -78,7 +68,7 @@
 .i4 {
   grid-column: 1;
   grid-row: 2;
-  margin-top: -10px; /* lifts image up (same as ref layout) */
+  margin-top: -10px; 
 }
 
 .i5 {
@@ -87,20 +77,18 @@
   margin-top: -10px;
 }
 
-/* RIGHT SECTION */
+
 .heroRight h1 {
   font-size: 45px;
   color: white;
   font-weight: 700;
   line-height: 64px;
-  /* margin-bottom: 25px; */
   font-family: "Syne", sans-serif;
 }
 
 .heroRight p {
   color: #9fa6ac;
   line-height: 26px;
-  /* margin-bottom: 30px; */
   max-width: 480px;
 }
 
@@ -114,7 +102,7 @@
   margin-bottom: 10px;
 }
 
-/* STATS */
+
 .stats {
   display: flex;
   gap: 60px;
@@ -131,3 +119,84 @@
   color: white;
   font-size: 16px;
 }
+
+.i1, .i2, .i3, .i4, .i5 {
+  opacity: 0;
+  transform: translateY(20px) translateX(0);
+  animation-fill-mode: both; 
+  animation-timing-function: cubic-bezier(.2,.9,.2,1);
+  animation-duration: 700ms;
+}
+
+.i1 { transform: translateX(-40px) translateY(10px); }
+.i2 { transform: translateX(-20px) translateY(20px); }
+.i3 { transform: translateX(20px) translateY(10px); }
+.i4 { transform: translateX(40px) translateY(20px); }
+.i5 { transform: translateX(0px) translateY(30px); }
+
+@keyframes enterUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes enterLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes enterRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+
+.i1 { animation-name: enterLeft;  animation-delay: 0.05s; }
+.i2 { animation-name: enterLeft;  animation-delay: 0.15s; }
+.i3 { animation-name: enterRight; animation-delay: 0.25s; }
+.i4 { animation-name: enterRight; animation-delay: 0.35s; }
+.i5 { animation-name: enterUp;    animation-delay: 0.45s; }
+
+
+.heroRight {
+  flex: 1;
+  opacity: 0;
+  transform: translateX(30px);
+  animation: contentEnter 0.8s cubic-bezier(.2,.9,.2,1) 0.1s both;
+  will-change: transform, opacity;
+}
+
+@keyframes contentEnter {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+
+

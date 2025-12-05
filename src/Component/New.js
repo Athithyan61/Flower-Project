@@ -1,16 +1,78 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "../Styles/New.module.css";
-import leftImg from "../Images/n2.png";   
-import midImg from "../Images/n3.png";    
-import rightImg from "../Images/n1.png"; 
+import leftImg from "../Images/n2.png";
+import midImg from "../Images/n3.png";
+import rightImg from "../Images/n1.png";
+
+
 export default function New() {
+
+  const leftRef = React.useRef(null);
+  const [showLeft, setShowLeft] = React.useState(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowLeft(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (leftRef.current) observer.observe(leftRef.current);
+  }, []);
+
+  const rightRef = React.useRef(null);
+  const [showRight, setShowRight] = React.useState(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowRight(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (rightRef.current) observer.observe(rightRef.current);
+  }, []);
+
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.show);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (contentRef.current) observer.observe(contentRef.current);
+  }, []);
+
+
+
   return (
     <section className={styles.wrapper}>
       <h1 className={styles.heading}>New Collection</h1>
 
       <div className={styles.container}>
-        {/* Left Image + Stat */}
-        <div className={styles.leftImageBox}>
+        <div
+          className={`${styles.leftImageBox} ${showLeft ? styles.show : ""}`}
+          ref={leftRef}
+        >
           <img
             src={leftImg}
             alt="Rose"
@@ -22,8 +84,8 @@ export default function New() {
           </div>
         </div>
 
-        {/* Content */}
-        <div className={styles.content}>
+
+        <div className={`${styles.content}`} ref={contentRef}>
           <p className={styles.subtitle}>Seraphic Rose</p>
           <h2 className={styles.title}>
             This Name Conjures an Image of Divine Beauty<br />and Purity
@@ -35,7 +97,6 @@ export default function New() {
             nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
 
-          {/* Small Image + Quote */}
           <div className={styles.row}>
             <img
               src={midImg}
@@ -53,21 +114,22 @@ export default function New() {
 
           <button className={styles.button}>Explore Products</button>
 
-          {/* Icons Section */}
           <div className={styles.features}>
             <div className={styles.featureItem}>🌿 Fast Growing</div>
             <div className={styles.featureItem}>✨ Easy Care</div>
           </div>
         </div>
 
-        {/* Right Large Image */}
-        <div className={styles.rightImageBox}>
+        <div
+          className={`${styles.rightImageBox} ${showRight ? styles.show : ""}`}
+          ref={rightRef}>
           <img
             src={rightImg}
             alt="Flowers"
             className={styles.rightImage}
           />
         </div>
+
       </div>
     </section>
   );

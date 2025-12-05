@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../Styles/Home.module.css";
-
 import img1 from "../Images/dimg5.png";
 import img2 from "../Images/dimg1.png";
 import img3 from "../Images/dimg3.png";
@@ -13,12 +12,18 @@ import ProductsPage from "./ProductSection";
 import CustomersExperiences from "./Customer";
 import FAQSection from "./Faq";
 import Footer from "./Footer";
+import { useLocation } from "react-router-dom";
 
 export default function Hero() {
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname]);
+
   return (
     <>
     <section className={styles.hero}>
-      {/* LEFT IMAGE GRID */}
       <div className={styles.heroLeft}>
         <div className={styles.heroGrid}>
           <img src={img1} alt="" className={`${styles.circle} ${styles.i1}`} />
@@ -29,7 +34,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
       <div className={styles.heroRight}>
         <h1>
           Best Place to Shop for <br /> Flowers Online

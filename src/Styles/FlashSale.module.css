@@ -130,3 +130,13 @@
   margin-top: 20px;
   display: block;
 }
+.cardBox {
+  opacity: 0;
+  transform: translateX(60px); 
+  transition: all 0.7s ease-out;
+}
+.cardBox.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
