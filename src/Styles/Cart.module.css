@@ -12,7 +12,7 @@
 }
 .totals p {
   display: flex;
-  justify-content: space-between; /* pushes amount to the right */
+  justify-content: space-between; 
   align-items: center;
   width: 100%;
   margin: 10px 0;
@@ -24,7 +24,6 @@
   font-weight: 600;
 }
 
-/* TABLE */
 .cartTable {
   width: 100%;
   border-collapse: collapse;
@@ -44,7 +43,6 @@
   color: #ffffff;
 }
 
-/* PRODUCT INFO */
 .productInfo {
   display: flex;
   align-items: center;
@@ -57,7 +55,6 @@
   object-fit: contain;
 }
 
-/* QUANTITY INPUT */
 .qtyInput {
   width: 60px;
   padding: 6px;
@@ -67,7 +64,6 @@
   outline: none;
 }
 
-/* REMOVE BUTTON */
 .removeBtn {
   background: none;
   border: none;
@@ -76,7 +72,6 @@
   cursor: pointer;
 }
 
-/* UPDATE CART BUTTON */
 .updateBtn {
   padding: 10px 20px;
   background: #b87e48;
@@ -93,7 +88,6 @@
   background: #d19b63;
 }
 
-/* COUPON BOX */
 .couponBox {
   display: flex;
   align-items: center;
@@ -133,7 +127,6 @@
   background: #d19b63;
 }
 
-/* CART TOTALS BOX */
 .cartTotalsBox {
   width: 100%;
   max-width: 350px;
@@ -154,7 +147,6 @@
   padding-bottom: 10px;
 }
 
-/* Subtotal / Total rows */
 .totalRow {
   display: flex;
   justify-content: space-between;
@@ -168,7 +160,6 @@
   font-weight: 600;
 }
 
-/* CHECKOUT BUTTON */
 .checkoutBtn,
 .checkoutBigBtn {
   width: 100%;

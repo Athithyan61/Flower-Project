@@ -68,7 +68,6 @@
     display: flex;
 }
 
-/* second grid */
 .second {
     background-color: #111315;
     padding-top: 5rem;
@@ -199,7 +198,6 @@
     font-size: 12px;
 }
 
-/* RIGHT COUNTER */
 .stats {
     display: flex;
     max-width: 80%;
@@ -239,7 +237,7 @@
 }
 
 
-/* Third Grid */
+
 .thirdContainer {
     background-color: #1e2125;
     padding-top: 5rem;
@@ -287,9 +285,8 @@
     border-bottom-right-radius: 200px;
 }
 
-/* Fourreasons Animations */
 [data-aos="fade-right"] {
-  transform: translateX(-1000px);  /* increase value = longer movement */
+  transform: translateX(-1000px);  
   opacity: 0;
 }
 [data-aos="fade-right"].aos-animate {
@@ -297,7 +294,7 @@
   opacity: 1;
 }
  [data-aos="fade-left"] {
-  transform: translateX(1000px);  /* increase value = longer movement */
+  transform: translateX(1000px);  
   opacity: 0;
 }
 [data-aos="fade-left"].aos-animate {

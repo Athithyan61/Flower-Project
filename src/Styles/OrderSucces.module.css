@@ -18,7 +18,6 @@
   max-width: 420px;
 }
 
-/* ✨ GIF STYLE */
 .successImg {
   width: 220px;
   height: auto;
@@ -80,7 +79,6 @@
   transition: all 0.3s ease;
 }
 
-/* Soft gold glow + scale animation */
 .homeBtn:hover,
 .orderBtn:hover {
   background: #b8860b;
@@ -88,7 +86,6 @@
   box-shadow: 0px 8px 18px rgba(255, 195, 0, 0.45);
 }
 
-/* Ripple animation */
 .homeBtn::after,
 .orderBtn::after {
   content: "";

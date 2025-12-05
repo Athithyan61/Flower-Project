@@ -1,17 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "./CartContext";   // ✅ FIX: import useCart
+import { useCart } from "./CartContext";   
 import styles from "../Styles/Checkout.module.css";
 import Footer from "./Footer";
 
 export default function Checkout() {
   const navigate = useNavigate();
-  const { cart } = useCart();   // ✅ FIX: get cart from context
+  const { cart } = useCart();   
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const handleOrder = () => {
-    navigate("/order-success"); // ✅ Only navigate, do NOT clear cart
+    navigate("/order-success"); 
   };
 
   return (
@@ -19,7 +19,6 @@ export default function Checkout() {
       <div className={styles.checkoutPage}>
         <div className={styles.wrapper}>
           
-          {/* Billing Form */}
           <div className={styles.billingBox}>
             <h2>Billing Details</h2>
 
@@ -41,7 +40,6 @@ export default function Checkout() {
             </div>
           </div>
 
-          {/* Order Summary */}
           <div className={styles.orderBox}>
             <h2>Your Order</h2>
 

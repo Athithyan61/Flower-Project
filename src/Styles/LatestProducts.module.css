@@ -19,7 +19,6 @@
   gap: 25px;
 }
 
-/* Base Card Style */
 .card {
   background: #111;
   border: 1px solid #363636;
@@ -31,7 +30,6 @@
   transform: translateY(25px);
 }
 
-/* Hover */
 .card:hover {
   transform: translateY(-4px);
   border-color: #d9a96c;
@@ -69,7 +67,6 @@
   object-fit: contain;
 }
 
-/* When visible - animation triggers */
 .show {
   opacity: 1 !important;
   transform: translateY(0) !important;

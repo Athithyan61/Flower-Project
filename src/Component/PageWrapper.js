@@ -4,15 +4,15 @@ export default function PageWrapper({ children }) {
   return (
     <motion.div
       initial={{
-        clipPath: "inset(0 0 100% 0)", // hidden from bottom
+        clipPath: "inset(0 0 100% 0)", 
         opacity: 0,
       }}
       animate={{
-        clipPath: "inset(0 0 0 0)", // fully visible
+        clipPath: "inset(0 0 0 0)", 
         opacity: 1,
       }}
       exit={{
-        clipPath: "inset(100% 0 0 0)", // hide to top
+        clipPath: "inset(100% 0 0 0)", 
         opacity: 0,
       }}
       transition={{

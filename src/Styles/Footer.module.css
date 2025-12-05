@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
 
-/* ==== SCROLL FADE-UP ANIMATION ==== */
 .fadeUp {
   opacity: 0;
   transform: translateY(50px);
@@ -18,14 +17,12 @@
   font-family: "Syne", sans-serif;
     padding: 70px 60px 9px;
 }
-/* ==== GRID ==== */
 .topGrid {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 80px;
 }
 
-/* HEADINGS */
 .heading1 {
   font-size: 22px;
   font-weight: 600;
@@ -34,7 +31,6 @@
   margin-bottom: 22px;
 }
 
-/* LIST */
 .menuList {
   list-style: none;
   padding: 0;
@@ -47,7 +43,6 @@
   font-family: "Syne", sans-serif;
 }
 
-/* ===== CENTER BOX (SUBSCRIBE) ===== */
 .centerBox {
   text-align: center;
 }
@@ -105,7 +100,6 @@
   font-family: "Syne", sans-serif;
 }
 
-/* ===== CONTACT ===== */
 .contactInfo {
   font-size: 16px;
   color: #cbd0d6;
@@ -118,14 +112,12 @@
   margin-top: 25px;
 }
 
-/* DIVIDER */
 .divider {
   height: 1px;
   background: #2a303a;
   margin: 18px 0 24px;
 }
 
-/* ===== MIDDLE ROW ===== */
 .middleRow {
   display: flex;
   justify-content: space-between;
@@ -165,7 +157,6 @@ color: #cd8a47;
   font-size: 16px;
 }
 
-/* COPYRIGHT */
 .copy {
   text-align: center;
   margin-top: 40px;
@@ -186,7 +177,6 @@ color: #cd8a47;
   margin-bottom: 22px;
   font-family: "Syne", sans-serif;
 }
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .topGrid {
     grid-template-columns: 1fr;

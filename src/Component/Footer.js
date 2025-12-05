@@ -32,13 +32,10 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
 
-      {/* 🔥 ANIMATED MAIN FOOTER WRAPPER */}
       <div ref={contentRef} className={styles.fadeUp}>
 
-        {/* TOP GRID */}
         <div className={styles.topGrid}>
 
-          {/* QUICK MENU */}
           <div>
             <h3 className={styles.heading1}>Quick Menu</h3>
             <ul className={styles.menuList}>
@@ -50,7 +47,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* SUBSCRIBE BOX */}
           <div className={styles.centerBox}>
             <h2 className={styles.subscribeTitle}>
               Subscribe and Grab <span>70% Off</span>
@@ -71,7 +67,6 @@ const Footer = () => {
             <button className={styles.emailBtn}>Send Email</button>
           </div>
 
-          {/* CONTACT */}
           <div>
             <h3 className={styles.heading}>Contact Us</h3>
             <div className={styles.contactInfo}>
@@ -88,10 +83,8 @@ const Footer = () => {
 
         </div>
 
-        {/* DIVIDER */}
         <div className={styles.divider}></div>
 
-        {/* BOTTOM SECTION */}
         <div className={styles.middleRow}>
           <ul className={styles.bottomMenu}>
             <li onClick={() => navigate("/")}>Home</li>
@@ -112,7 +105,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* DIVIDER */}
         <div className={styles.divider}></div>
 
         <p className={styles.copy}>Softnova Technology</p>

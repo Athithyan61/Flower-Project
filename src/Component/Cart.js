@@ -1,11 +1,11 @@
 import React from "react";
 import { useCart } from "./CartContext";
-import { useNavigate } from "react-router-dom";   // ✅ ADD THIS
+import { useNavigate } from "react-router-dom";   
 import styles from "../Styles/Cart.module.css";
 
 export default function Cart() {
   const { cart, updateQty, removeFromCart } = useCart();
-  const navigate = useNavigate();                // ✅ ADD THIS
+  const navigate = useNavigate();               
 
   const total = cart.reduce(
     (acc, item) => acc + Number(item.price) * Number(item.quantity),
@@ -71,10 +71,8 @@ export default function Cart() {
           </tbody>
         </table>
 
-        {/* ---------- UPDATE CART ---------- */}
         <button className={styles.updateBtn}>Update Cart</button>
 
-        {/* ---------- COUPON BOX ---------- */}
         <div className={styles.couponBox}>
           <input
             type="text"
@@ -84,7 +82,6 @@ export default function Cart() {
           <button className={styles.couponBtn}>Apply coupon</button>
         </div>
 
-        {/* ---------- TOTALS + CHECKOUT ---------- */}
         <div className={styles.cartActions}>
           <div className={styles.totals}>
             <p>
@@ -94,7 +91,6 @@ export default function Cart() {
               Total: <span>${total.toFixed(2)}</span>
             </p>
 
-            {/* ✅ NAVIGATE TO CHECKOUT */}
             <button
               className={styles.checkoutBtn}
               onClick={() => navigate("/checkout")}

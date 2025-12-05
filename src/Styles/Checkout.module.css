@@ -14,7 +14,6 @@
   gap: 35px;
 }
 
-/* LEFT SIDE — BILLING FORM */
 .billingBox {
   background: #111;
   padding: 25px 30px;
@@ -51,7 +50,6 @@
   color: #8c8c8c;
 }
 
-/* RIGHT SIDE — ORDER SUMMARY */
 .orderBox {
   background: #111;
   padding: 25px 30px;
@@ -85,7 +83,6 @@
   color: #fff;
 }
 
-/* TOTAL ROW */
 .totalRow {
   display: flex;
   justify-content: space-between;
@@ -99,7 +96,6 @@
   font-weight: 600;
 }
 
-/* PLACE ORDER BUTTON */
 .placeOrderBtn {
   width: 100%;
   padding: 15px;
@@ -116,7 +112,6 @@
   background: #d19b63;
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .wrapper {
     grid-template-columns: 1fr;

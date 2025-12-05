@@ -8,12 +8,11 @@ export const CartProvider = ({ children }) => {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
-  // Save cart to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // Add product to cart
+
   const addToCart = (product) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.name === product.name);
@@ -29,7 +28,8 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  // Update quantity
+ 
+  
   const updateQty = (name, qty) => {
     setCart((prev) =>
       prev.map((item) =>
@@ -38,7 +38,7 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // Remove item
+
   const removeFromCart = (name) => {
     setCart((prev) => prev.filter((item) => item.name !== name));
   };

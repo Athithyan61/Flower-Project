@@ -47,7 +47,6 @@ export default function Hero() {
             nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
 
-          {/* ⭐ SHOP NOW BUTTON — GOES TO PRODUCT PAGE */}
           <button
             className={styles.shopBtn}
             onClick={() => navigate("/products")}

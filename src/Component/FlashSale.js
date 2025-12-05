@@ -16,7 +16,6 @@ const FlashSale = () => {
     { name: "Olive Branches", oldPrice: 28, newPrice: 25, image: f3 },
   ];
 
-  /* ---------------- TIMER STATE ---------------- */
   const [timeLeft, setTimeLeft] = useState({
     days: 30,
     hours: 23,
@@ -24,7 +23,7 @@ const FlashSale = () => {
     seconds: 33,
   });
 
-  const [animateUnit, setAnimateUnit] = useState(""); // which box to animate
+  const [animateUnit, setAnimateUnit] = useState("");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -56,8 +55,7 @@ const FlashSale = () => {
         }
 
         setAnimateUnit(changed);
-        setTimeout(() => setAnimateUnit(""), 300); // remove animation
-
+        setTimeout(() => setAnimateUnit(""), 300);
         return { days, hours, minutes, seconds };
       });
     }, 1000);
@@ -65,7 +63,6 @@ const FlashSale = () => {
     return () => clearInterval(timer);
   }, []);
 
-  /* ---------------- SCROLL ANIMATIONS ---------------- */
   const [visibleIndexes, setVisibleIndexes] = useState([]);
   const cardsRef = useRef([]);
   const imgRef = useRef(null);
@@ -104,9 +101,10 @@ const FlashSale = () => {
 
   return (
     <div className={styles.flashContainer}>
-      {/* LEFT IMAGE */}
       <div
-        className={`${styles.flashLeft} ${imgVisible ? styles.animateImage : ""}`}
+        className={`${styles.flashLeft} ${
+          imgVisible ? styles.animateImage : ""
+        }`}
         ref={imgRef}
       >
         <img src={flow1} alt="flower" className={styles.flashBigImg} />
@@ -114,12 +112,10 @@ const FlashSale = () => {
         <button className={styles.viewBtn}>View All Offers</button>
       </div>
 
-      {/* RIGHT SIDE */}
       <div className={styles.flashRight}>
         <div className={styles.flashHeader}>
           <h1 className={styles.title}>Flash Sale</h1>
 
-          {/* TIMER */}
           <div className={styles.timerWrapper}>
             {["days", "hours", "minutes", "seconds"].map((unit, i) => (
               <div
@@ -135,7 +131,6 @@ const FlashSale = () => {
           </div>
         </div>
 
-        {/* PRODUCT CARDS */}
         <div className={styles.flashProducts}>
           {products.map((item, index) => (
             <div

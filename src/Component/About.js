@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import styles from "../Styles/about.module.css";
-// import classes from "../Styles/Productmain.module.css";
 import { Col, Container, Row } from "react-bootstrap"
 import rose from "../Images/rose.jpg"
 import rose2 from "../Images/flower2"
@@ -59,7 +58,6 @@ export default function About() {
                     </div>
                   </div>
             
-            {/* second grid */}
             <div className={styles.second}>
                 <Container>
                     <Row>
@@ -113,7 +111,6 @@ export default function About() {
                 </Container>
             </div>
 
-            {/* Third Grid */}
             <div className={styles.thirdContainer}>
                 <div className="container pt-5">
                     <div className={styles.heads} data-aos="fade-up" data-aos-duration="700">
@@ -164,7 +161,6 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            {/* Frequently Asked Questions */}
             <AboutFaq/>
         </div>
         <Footer />

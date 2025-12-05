@@ -20,17 +20,17 @@ const faqData = [
   {
     question: "Nulla sagittis condimentum ligula?",
     answer:
-       "I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
   },
   {
     question: "Curabitur tellus purus, porta sit amet?",
     answer:
-       "I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
   },
   {
     question: "Ipsum sit amet consectetur adipiscing?",
     answer:
-     "I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+      "I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
   },
 ];
 
@@ -51,11 +51,9 @@ const Faq1 = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   return (
     <>
-      
-    <div className={styles.main}>
+      <div className={styles.main}>
         <div className={styles.main1}>
           <h1>Faq</h1>
         </div>
@@ -69,101 +67,100 @@ const Faq1 = () => {
           />
 
           <img
-  src={flower1}
-  alt=""
-  className={`${styles.pImage} ${styles.centerImg}`}
-  style={{
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: `translate(-50%, -50%) translateY(${offsetY * 0.35}px)`,
-    zIndex: 1                 
-  }}
-/>
+            src={flower1}
+            alt=""
+            className={`${styles.pImage} ${styles.centerImg}`}
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: `translate(-50%, -50%) translateY(${
+                offsetY * 0.35
+              }px)`,
+              zIndex: 1,
+            }}
+          />
 
           <img
             src={flower2}
             alt=""
             className={styles.pImage}
-            style={{ transform:` translateY(${offsetY * -0.2}px) `}}
+            style={{ transform: ` translateY(${offsetY * -0.2}px) ` }}
           />
         </div>
       </div>
 
-       <div className={styles.faqWrapper}>
-      <h1 className={styles.title}>Frequently Asked Question</h1>
-      <div className={styles.faqBox}>
-        <div className={styles.faqHeader}>
-          <span className={styles.icon}>❓</span> General FAQ
+      <div className={styles.faqWrapper}>
+        <h1 className={styles.title}>Frequently Asked Question</h1>
+        <div className={styles.faqBox}>
+          <div className={styles.faqHeader}>
+            <span className={styles.icon}>❓</span> General FAQ
+          </div>
+          {faqData.map((item, i) => (
+            <div key={i} className={styles.faqItem}>
+              <div className={styles.question} onClick={() => toggleIndex(i)}>
+                <h3>{item.question}</h3>
+                <FaChevronDown
+                  className={`${styles.icon} ${
+                    activeIndex === i ? styles.rotate : ""
+                  }`}
+                />
+              </div>
+
+              {activeIndex === i && (
+                <p className={styles.answer}>{item.answer}</p>
+              )}
+            </div>
+          ))}
         </div>
-         {faqData.map((item, i) => (
-        <div key={i} className={styles.faqItem}>
-          <div className={styles.question} onClick={() => toggleIndex(i)}>
-            <h3>{item.question}</h3>
-            <FaChevronDown
-              className={`${styles.icon} ${
-                activeIndex === i ? styles.rotate : ""
-              }`}
-            />
+        <div className={styles.faqContainer}>
+          <div className={styles.headerBox}>
+            <span className={styles.icon}>🛒</span> Order Process
           </div>
 
-          {activeIndex === i && (
-            <p className={styles.answer}>{item.answer}</p>
-          )}
-        </div>
-      ))}
-      </div>
-          <div className={styles.faqContainer}>
-      <div className={styles.headerBox}>
-        <span className={styles.icon}>🛒</span> Order Process
-        
-      </div>
+          <div className={styles.listWrapper}>
+            {faqData.map((item, i) => (
+              <div key={i} className={styles.faqItem}>
+                <div className={styles.question} onClick={() => toggleIndex(i)}>
+                  <h3>{item.question}</h3>
+                  <FaChevronDown
+                    className={`${styles.icon} ${
+                      activeIndex === i ? styles.rotate : ""
+                    }`}
+                  />
+                </div>
 
-      <div className={styles.listWrapper}>
-        {faqData.map((item, i) => (
-        <div key={i} className={styles.faqItem}>
-          <div className={styles.question} onClick={() => toggleIndex(i)}>
-            <h3>{item.question}</h3>
-            <FaChevronDown
-              className={`${styles.icon} ${
-                activeIndex === i ? styles.rotate : ""
-              }`}
-            />
+                {activeIndex === i && (
+                  <p className={styles.answer}>{item.answer}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.faqContainer}>
+          <div className={styles.header}>
+            <span className={styles.titlee}>💳 Payments</span>
           </div>
 
-          {activeIndex === i && (
-            <p className={styles.answer}>{item.answer}</p>
-          )}
-        </div>
-      ))}
-      </div>
-    </div>
-     <div className={styles.faqContainer}>
-      <div className={styles.header}>
-        <span className={styles.titlee}>💳 Payments</span>
-      </div>
+          {faqData.map((item, i) => (
+            <div key={i} className={styles.faqItem}>
+              <div className={styles.question} onClick={() => toggleIndex(i)}>
+                <h3>{item.question}</h3>
+                <FaChevronDown
+                  className={`${styles.icon} ${
+                    activeIndex === i ? styles.rotate : ""
+                  }`}
+                />
+              </div>
 
-      {faqData.map((item, i) => (
-        <div key={i} className={styles.faqItem}>
-          <div className={styles.question} onClick={() => toggleIndex(i)}>
-            <h3>{item.question}</h3>
-            <FaChevronDown
-              className={`${styles.icon} ${
-                activeIndex === i ? styles.rotate : ""
-              }`}
-            />
-          </div>
-
-          {activeIndex === i && (
-            <p className={styles.answer}>{item.answer}</p>
-          )}
+              {activeIndex === i && (
+                <p className={styles.answer}>{item.answer}</p>
+              )}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  
-    </div>
-  <Footer />
-    
+      </div>
+      <Footer />
     </>
   );
 };

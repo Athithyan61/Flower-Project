@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../Styles/ProductSection.module.css"; // same css module
+import styles from "../Styles/ProductSection.module.css"; 
 import p1 from "../Images/p1.png";
 import p2 from "../Images/p2.png";
 import p3 from "../Images/p3.png";

@@ -16,7 +16,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 🔥 EXACT 3 columns */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 40px;
    overflow: hidden !important;
 }
@@ -98,8 +98,6 @@
   transform: translateX(0);
 }
 
-
-/* 📱 Responsive: 3 → 2 → 1 */
 @media (max-width: 1100px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);

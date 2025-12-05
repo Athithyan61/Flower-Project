@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../Styles/Blog.module.css';
-import img1 from '../j-images/flr1';
-import img2 from '../j-images/flr2';
-import img3 from '../j-images/flr3';
-import imgg1 from '../j-images/cont1';
-import imgg2 from '../j-images/cont2';
-import imgg3 from '../j-images/cont3';
-import imgg4 from '../j-images/cont4';
-import imgg5 from '../j-images/cont5';
-import imgg6 from '../j-images/cont6';
+import img1 from '../j-images/flr1.png';
+import img2 from '../j-images/flr2.png';
+import img3 from '../j-images/flr3.png';
+import imgg1 from '../j-images/cont1.png';
+import imgg2 from '../j-images/cont2.png';
+import imgg3 from '../j-images/cont3.png';
+import imgg4 from '../j-images/cont4.png';
+import imgg5 from '../j-images/cont5.png';
+import imgg6 from '../j-images/cont6.png';
 import { BsClock } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -97,11 +97,11 @@ function Blog() {
             alt=""
             className={`${styles.pImage} ${styles.centerImg}`}
             style={{
-              position: "absolute",    // make it positioned inside main2
+              position: "absolute",    
               top: "50%",
               left: "50%",
               transform: `translate(-50%, -50%) translateY(${offsetY * 0.35}px)`,
-              zIndex: 1                 // behind other images
+              zIndex: 1                 
             }}
           />
 

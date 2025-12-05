@@ -5,17 +5,14 @@ import { toast } from "react-toastify";
 
 import styles from "../Styles/ProductDetails.module.css";
 
-// Fallback products
 import f1 from "../Images/f1.png";
 import f2 from "../Images/f2.png";
 import f3 from "../Images/f3.png";
 
-// Parallax images
 import flower from "../S-images/flr1.jpg";
 import flower1 from "../S-images/flr2.jpg";
 import flower2 from "../S-images/flr3.jpg";
 
-// Related products
 import p1 from "../S-images/p1.png";
 import p2 from "../S-images/p2.png";
 import p3 from "../S-images/p3.png";
@@ -37,7 +34,6 @@ const products = [
 ];
 
 function ProductDetails() {
-  // ------------------- HOOKS (must stay first) -------------------
   const [buttonState, setButtonState] = useState({});
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(null);
@@ -51,17 +47,14 @@ function ProductDetails() {
   const { state: product } = useLocation();
   const { name } = useParams();
 
-  // Determine product from URL or passed state
   const currentProduct = product || productList.find((p) => p.name === name);
 
-  // Parallax scroll effect
   useEffect(() => {
     const handleScroll = () => setOffsetY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // If product is missing AFTER hooks → safe
   if (!currentProduct) return <h2>Product Not Found</h2>;
 
   const handleAddMainProduct = () => {
@@ -73,16 +66,14 @@ function ProductDetails() {
 
     toast.success("Your product is added to the basket!", {
       position: "top-center",
-      autoClose: 2000, // popup stays visible
+      autoClose: 2000, 
     });
 
-    // WAIT 1.5 sec → then navigate
     setTimeout(() => {
       navigate("/cart");
     }, 2500);
   };
 
-  // ------------------- Image hover move effect -------------------
   const handleMove = (e) => {
     const img = imageRef.current;
     const rect = img.getBoundingClientRect();
@@ -109,7 +100,6 @@ function ProductDetails() {
 
       setButtonState((prev) => ({ ...prev, [item.id]: "added" }));
 
-      // optional: show toast when added
       toast.success(`${item.name} added to basket!`, {
         position: "top-center",
         autoClose: 1200,
@@ -117,10 +107,8 @@ function ProductDetails() {
     }, 800);
   };
 
-  // ------------------- RENDER -------------------
   return (
     <>
-      {/* PARALLAX BANNER */}
       <div className={styles.main}>
         <div className={styles.main1}>
           <h1>Product Details</h1>
@@ -158,7 +146,6 @@ function ProductDetails() {
         </div>
       </div>
 
-      {/* PRODUCT SECTION */}
       <div className={styles.page}>
         <div
           className={styles.leftBox}
@@ -211,7 +198,6 @@ function ProductDetails() {
         </div>
       </div>
 
-      {/* REVIEW SECTION */}
       <div className={styles.reviewBox}>
         <div className={styles.reviewTabContainer}>
           <div className={styles.reviewTab}>Reviews (0)</div>
@@ -253,7 +239,6 @@ function ProductDetails() {
         <button className={styles.submitBtn}>Submit</button>
       </div>
 
-      {/* RELATED PRODUCTS */}
       <div className={styles.scontainer}>
         <h2 className={styles.stitle}>Related products</h2>
 
@@ -286,7 +271,6 @@ function ProductDetails() {
                   <p
                     className={styles.viewCart}
                     onClick={() => {
-                      // add again just to ensure it's in cart
                       addToCart({
                         id: item.id,
                         name: item.name,

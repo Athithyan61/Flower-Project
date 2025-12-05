@@ -1,9 +1,9 @@
-import imgg1 from '../j-images/cont1';
-import imgg2 from '../j-images/cont2';
-import imgg3 from '../j-images/cont3';
-import imgg4 from '../j-images/cont4';
-import imgg5 from '../j-images/cont5';
-import imgg6 from '../j-images/cont6';
+import imgg1 from '../j-images/cont1.png';
+import imgg2 from '../j-images/cont2.png';
+import imgg3 from '../j-images/cont3.png';
+import imgg4 from '../j-images/cont4.png';
+import imgg5 from '../j-images/cont5.png';
+import imgg6 from '../j-images/cont6.png';
 
 export const blogData = [
   {

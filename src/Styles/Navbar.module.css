@@ -47,7 +47,6 @@
   color: #d6a35a;
 }
 
-/* DROPDOWN ----------------------------------------------------------- */
 
 .dropdown {
   position: relative;
@@ -85,7 +84,6 @@
   color: #cfa05f;
 }
 
-/* CART SECTION -------------------------------------------------------- */
 
 .cartSection {
   display: flex;
@@ -131,7 +129,6 @@
   font-weight: bold;
 }
 
-/* OFF CANVAS CART ----------------------------------------------------- */
 
 .offCanvas {
   position: fixed;
@@ -163,7 +160,6 @@
   z-index: 1500;
 }
 
-/* CART HEADER ---------------------------------------------------------- */
 
 .cartHeader {
   display: flex;
@@ -183,7 +179,6 @@
   color: #edebeb;
 }
 
-/* CART ITEMS ----------------------------------------------------------- */
 
 .cartItems {
   flex: 1;
@@ -225,7 +220,6 @@
   font-family: "Syne", sans-serif;
 }
 
-/* VIEW CART BUTTON ---------------------------------------------------- */
 
 .viewCartBtn {
   width: 100%;

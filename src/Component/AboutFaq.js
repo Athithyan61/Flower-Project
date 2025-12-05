@@ -1,4 +1,3 @@
-// import Accordion from 'react-bootstrap/Accordion';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import styles from "../Styles/AboutFaq.module.css";
