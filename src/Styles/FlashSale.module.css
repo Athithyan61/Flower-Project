@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+.container {
+  max-width: 1900px;
+  /* margin: 0 auto; */
+  background: #14181f;
+}
 
 .flashContainer {
   display: flex;
@@ -7,7 +12,6 @@
   background: #14181f;
   color: white;
   overflow: hidden;
- 
 }
 
 .flashLeft {
@@ -35,7 +39,13 @@
   font-weight: bold;
   cursor: pointer;
   font-size: 13px;
-    font-family: "Syne", sans-serif;
+  font-family: "Syne", sans-serif;
+  transition: 0.3s;
+}
+.viewBtn:hover {
+  border: 1px solid #ba7d3a;
+  background: transparent;
+  color: white;
 }
 
 .flashRight {
@@ -98,8 +108,8 @@
 }
 .cardBox:hover {
   border-color: #d9a96c;
-   transform: translateY(-4px);
-   cursor: pointer;
+  transform: translateY(-4px);
+  cursor: pointer;
 }
 .cardBox h3 {
   margin: 0;
@@ -111,8 +121,7 @@
 .price {
   margin: 0;
   font-size: 16px;
-    font-family: "Syne", sans-serif;
-
+  font-family: "Syne", sans-serif;
 }
 
 .price del {
@@ -122,9 +131,8 @@
 .price span {
   margin-left: 10px;
   font-weight: 700;
-    font-family: "Syne", sans-serif;
+  font-family: "Syne", sans-serif;
 }
-
 
 .productImg {
   width: 180px;
@@ -133,7 +141,7 @@
 }
 .cardBox {
   opacity: 0;
-  transform: translateX(60px); 
+  transform: translateX(60px);
   transition: all 0.7s ease-out;
 }
 .cardBox.show {
@@ -141,3 +149,9 @@
   transform: translateX(0);
 }
 
+/* 🔥 Responsive for screens below 1441px */
+@media (min-width: 1441px) {
+  .flashContainer {
+    padding-left: 300px;
+  }
+}

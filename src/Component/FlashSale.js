@@ -44,32 +44,43 @@ const FlashSale = () => {
   }, []);
 
   return (
-    <div className={styles.flashContainer}>
-      <div className={styles.flashLeft}>
-        <img src={flow1} alt="flower" className={styles.flashBigImg} />
-        <button className={styles.viewBtn}>View All Offers</button>
-      </div>
-      <div className={styles.flashRight}>
-        <div className={styles.flashHeader}>
-          <h1 className={styles.title}>Flash Sale</h1>
-        </div>
-        <div className={styles.flashProducts}>
-          {products.map((item, index) => (
-            <div
-              key={index}
-              className={`${styles.cardBox} ${visibleItems[index] ? styles.show : ""}`}
-              ref={(el) => (itemRefs.current[index] = el)}
-              onClick={() =>
-                navigate(`/product/${item.name}`, { state: item })}>
-              <h3>{item.name}</h3>
-              <p className={styles.price}>
-                <del>${item.oldPrice}</del> <span>${item.newPrice}</span>
-              </p>
-              <img src={item.image} alt={item.name} className={styles.productImg} />
-            </div>
-          ))}
+    <div className={styles.container}>   {/* ⭐ ADDED CONTAINER */}
+      <div className={styles.flashContainer}>
+        <div className={styles.flashLeft}>
+          <img src={flow1} alt="flower" className={styles.flashBigImg} />
+          <button className={styles.viewBtn}>View All Offers</button>
         </div>
 
+        <div className={styles.flashRight}>
+          <div className={styles.flashHeader}>
+            <h1 className={styles.title}>Flash Sale</h1>
+          </div>
+
+          <div className={styles.flashProducts}>
+            {products.map((item, index) => (
+              <div
+                key={index}
+                className={`${styles.cardBox} ${
+                  visibleItems[index] ? styles.show : ""
+                }`}
+                ref={(el) => (itemRefs.current[index] = el)}
+                onClick={() =>
+                  navigate(`/product/${item.name}`, { state: item })
+                }
+              >
+                <h3>{item.name}</h3>
+                <p className={styles.price}>
+                  <del>${item.oldPrice}</del> <span>${item.newPrice}</span>
+                </p>
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className={styles.productImg}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
