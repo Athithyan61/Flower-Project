@@ -17,16 +17,48 @@ export default function FAQSection() {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  const itemRefs = React.useRef([]);
+  const [visibleItems, setVisibleItems] = React.useState([]);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisibleItems((prev) => ({
+              ...prev,
+              [index]: true,
+            }));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    itemRefs.current.forEach((item, i) => {
+      if (item) {
+        item.dataset.index = i;
+        observer.observe(item);
+      }
+    });
+  }, []);
+
+
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>Frequently Aked Question</h2>
 
       <div className={styles.container}>
-        
-        {/* LEFT FAQ */}
+
         <div className={styles.faqList}>
           {faqs.map((faq, index) => (
-            <div key={index} className={styles.faqItem}>
+            <div
+              key={index}
+              className={`${styles.faqItem} ${visibleItems[index] ? styles.show : ""}`}
+              ref={(el) => (itemRefs.current[index] = el)}
+            >
               <button
                 onClick={() => toggleFAQ(index)}
                 className={styles.faqQuestion}
@@ -46,7 +78,6 @@ export default function FAQSection() {
           ))}
         </div>
 
-        {/* RIGHT SIDE BOX */}
         <div className={styles.rightBox}>
           <h3>Still Have Other Questions?</h3>
           <p>

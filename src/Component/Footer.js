@@ -3,9 +3,11 @@ import styles from "../Styles/Footer.module.css";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import logo from "../Images/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const contentRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,10 +21,12 @@ const Footer = () => {
       { threshold: 0.3 }
     );
 
-    if (contentRef.current) observer.observe(contentRef.current);
+    const currentContent = contentRef.current; // Capture ref snapshot
+
+    if (currentContent) observer.observe(currentContent);
 
     return () => {
-      if (contentRef.current) observer.unobserve(contentRef.current);
+      if (currentContent) observer.unobserve(currentContent);
     };
   }, []);
 
@@ -97,6 +101,31 @@ const Footer = () => {
 
         <p className={styles.copy}>Copyright © All Right Reserved</p>
       </div>
+
+      <div className={styles.divider}></div>
+
+      <div className={styles.middleRow}>
+        <ul className={styles.bottomMenu}>
+          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/about")}>About Us</li>
+          <li onClick={() => navigate("/blog")}>Blog</li>
+        </ul>
+
+        <div className={styles.logo}>
+          <img src={logo} alt="Kembang Logo" />
+        </div>
+
+        <div className={styles.social}>
+          <span>Follow Us</span>
+          <RxCross2 className={styles.book} />
+          <FaFacebookF className={styles.book} />
+          <FaInstagram className={styles.book} />
+          <FaTiktok className={styles.book} />
+        </div>
+      </div>
+      <div className={styles.divider}></div>
+
+      <p className={styles.copy}>Copyright © All Right Reserved</p>
     </footer>
   );
 };

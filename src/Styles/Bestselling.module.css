@@ -19,9 +19,11 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
 }
+
 .grid h3 {
   text-decoration: none;
 }
+
 .card {
   border: 1px solid #2e2e2e;
   padding: 20px;
@@ -36,7 +38,9 @@
 .cardHeader {
   margin-bottom: 20px;
 }
-.grid h3, .grid a {
+
+.grid h3,
+.grid a {
   text-decoration: none;
   color: white;
 }
@@ -97,16 +101,3 @@
     grid-template-columns: 1fr;
   }
 }
-/* ==== SCROLL ANIMATION ==== */
-.fadeUp {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
-}
-
-.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-

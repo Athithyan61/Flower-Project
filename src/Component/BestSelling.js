@@ -7,16 +7,17 @@ import p7 from "../Images/p7.png";
 import p8 from "../Images/p8.png";
 
 export default function BestSelling() {
+  const cardsRef = useRef([]);
 
-  const contentRef = useRef(null);
 
-  const products = [
-    { name: "Blossom Noir", newPrice: "31.00", image: p5 },
+  const bestSellingProducts = [
+    { name: "Blossom Noir", oldPrice: "22.00",newPrice: "31.00", image: p5 },
     { name: "Orchid Flower", oldPrice: "22.00", newPrice: "18.00", image: p6 },
-    { name: "Pampas Grass", newPrice: "33.00", image: p7 },
-    { name: "Camellia Pink", newPrice: "25.00", image: p8 },
+    { name: "Pampas Grass",oldPrice: "22.00", newPrice: "33.00", image: p7 },
+    { name: "Camellia Pink",oldPrice: "22.00", newPrice: "25.00", image: p8 },
   ];
 
+   
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -26,50 +27,47 @@ export default function BestSelling() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
-    if (contentRef.current) observer.observe(contentRef.current);
-
-    return () => {
-      if (contentRef.current) observer.unobserve(contentRef.current);
-    };
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
   }, []);
 
   return (
-    <section className={styles.section}>
-      
-      {/* only this fades, background won't move */}
-      <div ref={contentRef} className={styles.fadeUp}>
-        <h2 className={styles.heading}>Best Selling Products</h2>
+   <section
+  className={styles.section}>
 
-        <div className={styles.grid}>
-          {products.map((item, index) => (
-            <Link
-              to={`/product/${item.name.replace(/\s+/g, "-").toLowerCase()}`}
-              state={item}
-              key={index}
-            >
-              <div className={styles.card}>
-                <div className={styles.cardHeader}>
-                  <h3 className={styles.productName}>{item.name}</h3>
+      <h2 className={styles.heading}>Best Selling Products</h2>
+      <div className={styles.grid}>
+        {bestSellingProducts.map((item, index) => (
+          <Link
+            to={`/product/${item.name.replace(/\s+/g, "-").toLowerCase()}`}
+            state={item}
+            key={index}
+            className={styles.cardLink}
+          >
+            <div className={styles.card}  ref={(el) => (cardsRef.current[index] = el)}>
+              <div className={styles.cardHeader}>
+                <h3 className={styles.productName}>{item.name}</h3>
 
-                  <p className={styles.prices}>
-                    {item.oldPrice && (
-                      <span className={styles.oldPrice}>${item.oldPrice}</span>
-                    )}
-                    <span className={styles.newPrice}>${item.newPrice}</span>
-                  </p>
-                </div>
-
-                <div className={styles.imageWrapper}>
-                  <img src={item.image} alt={item.name} className={styles.image} />
-                </div>
+                <p className={styles.prices}>
+                  {item.oldPrice && (
+                    <span className={styles.oldPrice}>${item.oldPrice}</span>
+                  )}
+                  <span className={styles.newPrice}>${item.newPrice}</span>
+                </p>
               </div>
-            </Link>
-          ))}
-        </div>
+
+              <div className={styles.imageWrapper}>
+                <img src={item.image} alt={item.name} className={styles.image} />
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );
 }
+

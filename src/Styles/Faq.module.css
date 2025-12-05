@@ -53,8 +53,6 @@
   background: #3a3a3a;
   margin-top: 15px;
 }
-
-/* RIGHT BOX */
 .rightBox {
   background: #b27633;
   padding: 50px;
@@ -90,8 +88,16 @@
   background: white;
   color: #b27633;
 }
+.faqItem {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.6s ease-out;
+}
+.faqItem.show {
+  opacity: 1;
+  transform: translateX(0);
+}
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .container {
     grid-template-columns: 1fr;

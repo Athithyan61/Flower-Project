@@ -82,7 +82,9 @@
   width: 100%;
   height: 260px;
   margin-bottom: 15px;
+  cursor: pointer;
 }
+
 
 .blogmeta {
   display: flex;

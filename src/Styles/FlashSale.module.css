@@ -7,8 +7,9 @@
   background: #14181f;
   color: white;
   overflow: hidden;
- 
+  font-family: "Syne", sans-serif;
 }
+
 .timerWrapper {
   display: flex;
   gap: 15px;
@@ -38,8 +39,6 @@
   color: #b9b9b9;
 }
 
-
-
 .viewBtn {
   position: absolute;
   bottom: -6px;
@@ -53,7 +52,12 @@
   font-weight: bold;
   cursor: pointer;
   font-size: 13px;
-    font-family: "Syne", sans-serif;
+  font-family: "Syne", sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.viewBtn:hover {
+  background-color: #c17c25;
 }
 
 .flashRight {
@@ -69,9 +73,7 @@
 .title {
   font-size: 48px;
   font-weight: 700;
-  font-family: "Syne", sans-serif;
 }
-/* SAME STYLES ABOVE, JUST ADD THESE */
 
 @keyframes slideFromRight {
   0% {
@@ -88,37 +90,6 @@
   animation: slideFromRight 0.5s ease forwards;
 }
 
-
-
-.timer {
-  display: flex;
-  gap: 20px;
-}
-
-.timeBox {
-  width: 80px;
-  height: 80px;
-  background: #0f1115;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.timeBox span {
-  font-size: 25px;
-  font-weight: 700;
-  font-family: "Syne", sans-serif;
-}
-
-.timeBox p {
-  font-size: 14px;
-  margin: 0;
-  opacity: 0.7;
-  font-family: "Syne", sans-serif;
-}
-
 .flashProducts {
   margin-top: 40px;
   display: flex;
@@ -130,24 +101,38 @@
   height: 330px;
   border: 1px solid #363636;
   padding: 20px;
-    transition: 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1f27;
+  border-radius: 10px;
 }
+
+.cardBox.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .cardBox:hover {
   border-color: #d9a96c;
-   transform: translateY(-4px);
+  transform: translateY(-4px);
 }
+
 .cardBox h3 {
-  margin: 0;
-  margin-bottom: 5px;
+  margin: 0 0 5px 0;
   font-size: 18px;
-  font-family: "Syne", sans-serif;
+  font-weight: 600;
 }
 
 .price {
   margin: 0;
   font-size: 16px;
-    font-family: "Syne", sans-serif;
-
+  width: 100%;
+  text-align: center;
 }
 
 .price del {
@@ -157,38 +142,18 @@
 .price span {
   margin-left: 10px;
   font-weight: 700;
-    font-family: "Syne", sans-serif;
 }
-
 
 .productImg {
   width: 180px;
   margin-top: 20px;
   display: block;
-}
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px); /* கீழிருந்து 20px கீழே இருந்தது */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* மேலே வந்து வழக்கமான இடத்தில் இருக்கும் */
-  }
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-.cardBox {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  cursor: pointer;
-  /* Other existing styles */
-}
-
-.cardBox.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* LEFT IMAGE CONTAINER */
 .flashLeft {
   position: relative;
   width: 400px;
@@ -198,20 +163,21 @@
   align-items: center;
   opacity: 0;
   transform: translateX(-120px);
-  transition: 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .animateImage {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1 !important;
+  transform: translateX(0) !important;
 }
 
 .flashBigImg {
   width: 300px;
   height: 420px;
-  border-radius: 90% /50%;
+  border-radius: 90% / 50%;
   object-fit: cover;
   display: block;
   opacity: 0.3;
+  user-select: none;
+  pointer-events: none;
 }
-

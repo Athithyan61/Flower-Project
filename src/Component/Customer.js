@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "../Styles/Customer.module.css";
 import c1 from "../Images/d1.png";
 import c2 from "../Images/d2.png";
@@ -6,6 +6,8 @@ import c3 from "../Images/d3.png";
 import c4 from "../Images/d4.png";
 import c5 from "../Images/d5.png";
 import c6 from "../Images/d6.png";
+
+
 const customers = [
   {
     name: "John Doe",
@@ -50,15 +52,39 @@ const customers = [
     text: "I am text block. Click edit button to change this text. Lorem, consectetur adipiscing elit."
   }
 ];
-
 export default function CustomersExperiences() {
+  const cardRefs = useRef([]);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.show);
+        } else {
+          entry.target.classList.remove(styles.show); 
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  cardRefs.current.forEach((card) => {
+    if (card) observer.observe(card);
+  });
+}, []);
+
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>Customers Experiences</h2>
 
       <div className={styles.grid}>
         {customers.map((c, i) => (
-          <div key={i} className={styles.card}>
+          <div
+            key={i}
+            ref={(el) => (cardRefs.current[i] = el)}
+            className={`${styles.card} ${i < 3 ? styles.left : styles.right}`}>
+
             <div className={styles.headerRow}>
               <div className={styles.userInfo}>
                 <img src={c.image} alt={c.name} className={styles.avatar} />

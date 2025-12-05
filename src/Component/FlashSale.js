@@ -29,6 +29,7 @@ const FlashSale = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
+      // Trigger animation
       setAnimateTimer(true);
 
       setTimeLeft((prev) => {
@@ -51,8 +52,10 @@ const FlashSale = () => {
         return { days, hours, minutes, seconds };
       });
 
+      // Remove animation class after 400ms so it can re-trigger next second
       const animationTimeout = setTimeout(() => setAnimateTimer(false), 400);
 
+      // Cleanup timeout on unmount or before next tick
       return () => clearTimeout(animationTimeout);
     }, 1000);
 
@@ -84,7 +87,7 @@ const FlashSale = () => {
       }
     });
 
-    // Capture refs snapshot here
+    // Capture snapshot of cardsRef.current for cleanup safety
     const currentCards = cardsRef.current.slice();
     currentCards.forEach((card) => card && cardsObserver.observe(card));
 

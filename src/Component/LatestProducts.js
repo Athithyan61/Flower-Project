@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "../Styles/LatestProducts.module.css";
 import { useNavigate } from "react-router-dom";
 import lp1 from "../Images/lp1.png";
@@ -9,7 +9,6 @@ import lp5 from "../Images/lp5.png";
 import lp6 from "../Images/lp6.png";
 import lp7 from "../Images/lp7.png";
 import lp8 from "../Images/lp8.png";
-
 
 const products = [
   { name: "Areca Palm", oldPrice: 33, newPrice: 33, image: lp1 },
@@ -24,44 +23,13 @@ const products = [
 export default function LatestProducts() {
   const navigate = useNavigate();
   const cardRefs = useRef([]); // store refs to all cards
-  const [visibleCards, setVisibleCards] = useState([]);
+  const [visibleCards] = useState([]);
 
   const openDetails = (item) => {
     navigate(`/product/${item.name}`, { state: item });
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = entry.target.getAttribute("data-index");
-          if (entry.isIntersecting) {
-            // Add index to visibleCards if not already present
-            setVisibleCards((prev) => {
-              if (!prev.includes(Number(index))) {
-                return [...prev, Number(index)];
-              }
-              return prev;
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.1, // 10% visible
-      }
-    );
-
-    cardRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    // Cleanup on unmount
-    return () => {
-      cardRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, []);
+  
 
   return (
     <section className={styles.container}>
