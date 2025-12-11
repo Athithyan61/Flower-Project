@@ -9,14 +9,14 @@ import f1 from "../Images/f1.png";
 import f2 from "../Images/f2.png";
 import f3 from "../Images/f3.png";
 
-import flower from "../S-images/flr1.jpg";
-import flower1 from "../S-images/flr2.jpg";
-import flower2 from "../S-images/flr3.jpg";
+import flower from "../Images/flr1.jpg";
+import flower1 from "../Images/flr2.jpg";
+import flower2 from "../Images/flr3.jpg";
 
-import p1 from "../S-images/p1.png";
-import p2 from "../S-images/p2.png";
-import p3 from "../S-images/p3.png";
-import p4 from "../S-images/p4.png";
+import p1 from "../Images/p1.png";
+import p2 from "../Images/p2.png";
+import p3 from "../Images/p3.png";
+import p4 from "../Images/p4.png";
 
 import Footer from "./Footer";
 

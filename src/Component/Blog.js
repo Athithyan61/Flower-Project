@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../Styles/Blog.module.css';
-import img1 from '../j-images/flr1.png';
-import img2 from '../j-images/flr2.png';
-import img3 from '../j-images/flr3.png';
-import imgg1 from '../j-images/cont1.png';
-import imgg2 from '../j-images/cont2.png';
-import imgg3 from '../j-images/cont3.png';
-import imgg4 from '../j-images/cont4.png';
-import imgg5 from '../j-images/cont5.png';
-import imgg6 from '../j-images/cont6.png';
+import img1 from '../Images/flr1.png';
+import img2 from '../Images/flr2.png';
+import img3 from '../Images/flr3.png';
+import imgg1 from '../Images/cont1.png';
+import imgg2 from '../Images/cont2.png';
+import imgg3 from '../Images/cont3.png';
+import imgg4 from '../Images/cont4.png';
+import imgg5 from '../Images/cont5.png';
+import imgg6 from '../Images/cont6.png';
 import { BsClock } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { useLocation, useNavigate } from 'react-router-dom';

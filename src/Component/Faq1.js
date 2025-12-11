@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "../Styles/Faq1.module.css";
 
-import flower from "../S-images/flr1.jpg";
-import flower1 from "../S-images/flr2.jpg";
-import flower2 from "../S-images/flr3.jpg";
+import flower from "../Images/flr1.jpg";
+import flower1 from "../Images/flr2.jpg";
+import flower2 from "../Images/flr3.jpg";
 import { FaChevronDown } from "react-icons/fa";
 import Footer from "../Component/Footer";
 const faqData = [

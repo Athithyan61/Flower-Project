@@ -3,9 +3,9 @@ import styles from "../Styles/about.module.css";
 import { Col, Container, Row } from "react-bootstrap"
 import rose from "../Images/rose.jpg"
 import rose2 from "../Images/flower2"
-import flower from "../S-images/flr1.jpg";
-import flower1 from "../S-images/flr2.jpg";
-import flower2 from "../S-images/flr3.jpg";
+import flower from "../Images/flr1.jpg";
+import flower1 from "../Images/flr2.jpg";
+import flower2 from "../Images/flr3.jpg";
 import AboutFaq from './AboutFaq';
 import Footer from './Footer';
 export default function About() {
